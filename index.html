@@ -1,0 +1,2075 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TKA Assessment Enterprise Platform — Bahasa Inggris Kelas IX (Fase D)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            emeraldDeep: '#04120D',
+            emeraldCard: '#091F17',
+            emeraldBorder: '#133B2C',
+            goldPrime: '#F59E0B',
+            goldGlow: '#FBBF24',
+            goldDeep: '#B45309',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Anti-copy & enterprise protection */
+    body.exam-active {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    /* Futuristic glass & glow styling */
+    .glass-panel {
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .gold-emerald-gradient {
+      background: linear-gradient(135deg, #059669 0%, #047857 50%, #B45309 100%);
+    }
+
+    .gold-btn {
+      background: linear-gradient(135deg, #FBBF24 0%, #D97706 100%);
+      color: #04120D;
+      font-weight: 700;
+      box-shadow: 0 4px 20px -2px rgba(245, 158, 11, 0.45);
+      transition: all 0.2s ease;
+    }
+    .gold-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 25px -2px rgba(251, 191, 36, 0.65);
+    }
+
+    .emerald-btn {
+      background: linear-gradient(135deg, #10B981 0%, #047857 100%);
+      color: #FFFFFF;
+      font-weight: 600;
+      box-shadow: 0 4px 20px -2px rgba(16, 185, 129, 0.4);
+      transition: all 0.2s ease;
+    }
+    .emerald-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 25px -2px rgba(16, 185, 129, 0.6);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(16, 185, 129, 0.35);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(245, 158, 11, 0.6);
+    }
+
+    /* Futuristic grid background */
+    .bg-cyber-grid {
+      background-size: 36px 36px;
+      background-image: 
+        linear-gradient(to right, rgba(16, 185, 129, 0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(245, 158, 11, 0.05) 1px, transparent 1px);
+    }
+
+    /* Certificate ornate border */
+    .cert-frame {
+      background: radial-gradient(circle at top right, rgba(251, 191, 36, 0.14), transparent 45%),
+                  radial-gradient(circle at bottom left, rgba(16, 185, 129, 0.16), transparent 45%),
+                  #061812;
+      border: 3px solid #F59E0B;
+      box-shadow: inset 0 0 0 6px #061812, inset 0 0 0 8px #10B981, 0 20px 50px rgba(0,0,0,0.6);
+    }
+
+    @media print {
+      body * {
+        visibility: hidden !important;
+      }
+      #certificatePrintArea, #certificatePrintArea * {
+        visibility: visible !important;
+      }
+      #certificatePrintArea {
+        position: fixed !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        margin: 0 !important;
+        padding: 24px !important;
+        z-index: 99999 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-emeraldDeep dark:text-slate-100 bg-cyber-grid min-h-screen font-sans antialiased transition-colors duration-300">
+
+  <!-- GLOBAL NOTIFICATION TOAST -->
+  <div id="toastContainer" class="fixed top-4 right-4 z-[100] flex flex-col gap-2 pointer-events-none max-w-sm w-full px-4 sm:px-0"></div>
+
+  <!-- MODAL DIALOG (CONFIRMATIONS & MESSAGES - NO alert()/confirm()) -->
+  <div id="customModal" class="fixed inset-0 z-[95] hidden items-center justify-center bg-black/75 backdrop-blur-sm p-4">
+    <div class="bg-white dark:bg-emeraldCard border border-emerald-500/40 dark:border-amber-500/40 rounded-2xl max-w-md w-full p-6 shadow-2xl transform transition-all">
+      <div class="flex items-center gap-3 mb-3">
+        <div id="modalIcon" class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-500 flex items-center justify-center shrink-0">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+        </div>
+        <h3 id="modalTitle" class="text-lg font-bold text-slate-900 dark:text-white">Konfirmasi</h3>
+      </div>
+      <p id="modalMessage" class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6"></p>
+      <div class="flex justify-end gap-3">
+        <button id="modalCancelBtn" class="px-4 py-2.5 rounded-xl text-sm font-semibold border border-slate-300 dark:border-emerald-800 hover:bg-slate-100 dark:hover:bg-emerald-900/50 transition">Batal</button>
+        <button id="modalConfirmBtn" class="gold-btn px-5 py-2.5 rounded-xl text-sm">Ya, Lanjutkan</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- VIEW 1: ENTERPRISE AUTHENTICATION GATEWAY (HIDDEN CREDENTIALS)        -->
+  <!-- ===================================================================== -->
+  <section id="loginView" class="min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
+    <!-- Ambient Decorative Orbs -->
+    <div class="absolute -top-24 -left-24 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="w-full max-w-lg bg-white/90 dark:bg-emeraldCard/90 glass-panel border border-emerald-500/30 dark:border-amber-500/30 rounded-3xl shadow-2xl p-6 sm:p-10 relative z-10">
+      <!-- Top Controls on Login -->
+      <div class="flex items-center justify-between mb-6">
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          PROCTORED CBT v4.0
+        </span>
+        <div class="flex items-center gap-2">
+          <button onclick="toggleLanguage()" class="px-3 py-1.5 rounded-xl text-xs font-bold border border-amber-500/40 bg-amber-500/10 text-amber-700 dark:text-amber-300 hover:bg-amber-500/20 transition" id="loginLangBtn">ID / EN</button>
+          <button onclick="toggleTheme()" class="p-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-500/20 transition" title="Toggle Theme">
+            <svg class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            <svg class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Brand Header -->
+      <div class="text-center mb-8">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-2xl gold-emerald-gradient p-0.5 shadow-lg">
+          <div class="w-full h-full bg-slate-950 rounded-[14px] flex items-center justify-center">
+            <svg class="w-9 h-9 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-500 via-amber-400 to-amber-500 bg-clip-text text-transparent">
+          TKA ENTERPRISE CBT
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1.5 font-medium" data-i18n="loginSubtitle">
+          Paket Latihan Asesmen Model TKA • Bahasa Inggris Kelas IX (Fase D)
+        </p>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginForm" class="space-y-4" autocomplete="off">
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-1.5" data-i18n="usernameLabel">Username Akses</label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            </span>
+            <input type="text" id="loginUsername" required placeholder="••••••••"
+              class="w-full pl-11 pr-4 py-3 rounded-xl bg-slate-100 dark:bg-emeraldDeep/90 border border-slate-300 dark:border-emerald-800/80 text-slate-900 dark:text-white focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition text-sm font-medium" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-1.5" data-i18n="passwordLabel">Kata Sandi Keamanan</label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            </span>
+            <input type="password" id="loginPassword" required placeholder="••••••••••"
+              class="w-full pl-11 pr-11 py-3 rounded-xl bg-slate-100 dark:bg-emeraldDeep/90 border border-slate-300 dark:border-emerald-800/80 text-slate-900 dark:text-white focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition text-sm font-medium" />
+            <button type="button" onclick="togglePassVisibility('loginPassword')" class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-amber-400">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <p id="loginError" class="hidden text-xs font-semibold text-rose-500 bg-rose-500/10 border border-rose-500/30 rounded-xl p-3 text-center"></p>
+
+        <button type="submit" class="w-full gold-btn py-3.5 rounded-xl text-sm tracking-wide uppercase flex items-center justify-center gap-2 mt-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/></svg>
+          <span data-i18n="loginBtn">Masuk ke Portal Asesmen</span>
+        </button>
+      </form>
+
+      <!-- Creator Watermark -->
+      <div class="mt-8 pt-4 border-t border-slate-200 dark:border-emerald-900/80 text-center">
+        <p class="text-[11px] uppercase tracking-widest text-slate-400">Enterprise Assessment Engine</p>
+        <p class="text-xs font-bold text-amber-600 dark:text-amber-400 mt-0.5">Pembuat Aplikasi: Ahmad Budi Leksono</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- VIEW 2: STUDENT IDENTITY GATE (MENU IDENTITAS MURID DI AWAL)          -->
+  <!-- ===================================================================== -->
+  <section id="identityView" class="hidden min-h-screen flex items-center justify-center p-4 relative">
+    <div class="w-full max-w-2xl bg-white/95 dark:bg-emeraldCard/95 glass-panel border border-emerald-500/30 dark:border-amber-500/30 rounded-3xl shadow-2xl p-6 sm:p-10">
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-6 pb-4 border-b border-slate-200 dark:border-emerald-800/70">
+        <div>
+          <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/30" data-i18n="stepBadge">REGISTRASI PESERTA UJIAN</span>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white mt-2" data-i18n="identityTitle">Menu Identitas Murid</h2>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="toggleLanguage()" class="px-3 py-1.5 rounded-xl text-xs font-bold border border-amber-500/40 bg-amber-500/10 text-amber-700 dark:text-amber-300" id="idLangBtn">ID / EN</button>
+          <button onclick="toggleTheme()" class="p-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300">
+            <svg class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            <svg class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Security & Auto-Shuffle Notice -->
+      <div class="mb-6 p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-start gap-3">
+        <svg class="w-6 h-6 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <div class="text-xs text-slate-700 dark:text-slate-300 space-y-1">
+          <p class="font-bold text-emerald-700 dark:text-emerald-300" data-i18n="identityNoticeTitle">Sistem Pengacakan & Proteksi Otomatis:</p>
+          <p data-i18n="identityNoticeDesc">Setiap perubahan identitas murid akan secara otomatis me-reset progres jawaban dan mengacak urutan stimulus/soal tanpa mengubah substansi materi. Waktu pengerjaan dibatasi 80 menit secara real-time. Membuka tab baru, berpindah jendela, atau mengunci layar perangkat akan mengunci aplikasi secara otomatis.</p>
+        </div>
+      </div>
+
+      <form id="identityForm" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="sm:col-span-2">
+          <label class="block text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-1.5" data-i18n="fieldNama">Nama Lengkap Murid *</label>
+          <input type="text" id="studentName" required placeholder="Contoh: Muhammad Rayyan Al-Fatih"
+            class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-emeraldDeep border border-slate-300 dark:border-emerald-800 text-slate-900 dark:text-white focus:outline-none focus:border-amber-400 text-sm font-medium" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-1.5" data-i18n="fieldKelas">Kelas *</label>
+          <input type="text" id="studentClass" required placeholder="Contoh: IX-A"
+            class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-emeraldDeep border border-slate-300 dark:border-emerald-800 text-slate-900 dark:text-white focus:outline-none focus:border-amber-400 text-sm font-medium" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-1.5" data-i18n="fieldPresensi">Nomor Presensi *</label>
+          <input type="text" id="studentNumber" required placeholder="Contoh: 14"
+            class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-emeraldDeep border border-slate-300 dark:border-emerald-800 text-slate-900 dark:text-white focus:outline-none focus:border-amber-400 text-sm font-medium" />
+        </div>
+
+        <div class="sm:col-span-2">
+          <label class="block text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-1.5" data-i18n="fieldMadrasah">Asal Madrasah / Sekolah *</label>
+          <input type="text" id="studentSchool" required placeholder="Contoh: MTs Negeri 1 Kota Malang"
+            class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-emeraldDeep border border-slate-300 dark:border-emerald-800 text-slate-900 dark:text-white focus:outline-none focus:border-amber-400 text-sm font-medium" />
+        </div>
+
+        <!-- Summary Specs -->
+        <div class="sm:col-span-2 grid grid-cols-3 gap-3 p-3.5 rounded-2xl bg-slate-100 dark:bg-emeraldDeep/80 border border-slate-200 dark:border-emerald-900 text-center">
+          <div>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400" data-i18n="specQuestions">Jumlah Soal</p>
+            <p class="text-sm font-extrabold text-emerald-600 dark:text-emerald-400">50 Butir PG</p>
+          </div>
+          <div class="border-x border-slate-300 dark:border-emerald-800">
+            <p class="text-[11px] text-slate-500 dark:text-slate-400" data-i18n="specDuration">Batas Waktu</p>
+            <p class="text-sm font-extrabold text-amber-600 dark:text-amber-400">80 Menit</p>
+          </div>
+          <div>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400" data-i18n="specCert">Syarat Sertifikat</p>
+            <p class="text-sm font-extrabold text-emerald-600 dark:text-emerald-400">Skor ≥ 80</p>
+          </div>
+        </div>
+
+        <div class="sm:col-span-2 flex flex-col sm:flex-row gap-3 pt-2">
+          <button type="button" onclick="logoutToLogin()" class="px-5 py-3.5 rounded-xl text-sm font-semibold border border-slate-300 dark:border-emerald-800 hover:bg-slate-100 dark:hover:bg-emerald-900/40 transition" data-i18n="btnBackLogin">
+            Kembali
+          </button>
+          <button type="submit" class="flex-1 gold-btn py-3.5 rounded-xl text-sm uppercase tracking-wider flex items-center justify-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span data-i18n="btnStartExam">Mulai Asesmen Sekarang</span>
+          </button>
+        </div>
+      </form>
+
+      <div class="mt-6 text-center text-xs text-slate-400">
+        Pembuat Aplikasi: <strong class="text-amber-500">Ahmad Budi Leksono</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- VIEW 3: PROCTORING SECURITY LOCKOUT SCREEN (ANTI-CHEAT BREACH)        -->
+  <!-- ===================================================================== -->
+  <section id="lockoutView" class="hidden fixed inset-0 z-[90] bg-slate-950/98 backdrop-blur-xl flex items-center justify-center p-4 overflow-y-auto">
+    <div class="max-w-lg w-full bg-emeraldCard border-2 border-rose-500 rounded-3xl p-6 sm:p-8 shadow-[0_0_60px_rgba(244,63,94,0.35)] text-center relative">
+      <div class="w-20 h-20 mx-auto mb-5 rounded-2xl bg-rose-500/20 border border-rose-500 flex items-center justify-center animate-pulse">
+        <svg class="w-11 h-11 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+      </div>
+
+      <span class="inline-block px-3 py-1 rounded-full text-xs font-mono font-bold bg-rose-500/20 text-rose-400 border border-rose-500/40 mb-3">
+        SECURITY LOCK-OUT TRIGGERED
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-2" data-i18n="lockoutTitle">APLIKASI TERKUNCI OTOMATIS!</h2>
+      <p id="lockoutReasonText" class="text-sm text-rose-200/90 leading-relaxed mb-5">
+        Sistem mendeteksi Anda meninggalkan layar ujian, membuka tab browser baru, berpindah aplikasi, atau mengunci layar perangkat. Sesi pengerjaan Anda telah dihentikan dan dikunci secara otomatis.
+      </p>
+
+      <div class="bg-black/40 border border-rose-500/30 rounded-2xl p-4 text-left text-xs text-slate-300 space-y-1.5 mb-6 font-mono">
+        <div><span class="text-amber-400">PESERTA :</span> <span id="lockStudentName">-</span></div>
+        <div><span class="text-amber-400">KELAS   :</span> <span id="lockStudentClass">-</span></div>
+        <div><span class="text-amber-400">STATUS  :</span> <span class="text-rose-400 font-bold">LOCKED / SUSPENDED</span></div>
+        <div><span class="text-amber-400">WAKTU   :</span> <span id="lockTimestamp">-</span></div>
+      </div>
+
+      <!-- Proctor / Admin Unlock Panel -->
+      <div class="bg-emeraldDeep/90 border border-amber-500/40 rounded-2xl p-4 text-left">
+        <p class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-3" data-i18n="proctorUnlockTitle">Otorisasi Pengawas / Admin untuk Membuka Kunci:</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-3">
+          <input type="text" id="unlockUser" placeholder="Username Pengawas" class="px-3.5 py-2.5 rounded-xl bg-black/50 border border-emerald-800 text-white text-xs focus:outline-none focus:border-amber-400" />
+          <input type="password" id="unlockPass" placeholder="Password Pengawas" class="px-3.5 py-2.5 rounded-xl bg-black/50 border border-emerald-800 text-white text-xs focus:outline-none focus:border-amber-400" />
+        </div>
+        <p id="unlockError" class="hidden text-xs text-rose-400 mb-2 font-semibold"></p>
+        <div class="flex flex-col sm:flex-row gap-2">
+          <button onclick="attemptProctorUnlock(false)" class="flex-1 emerald-btn py-2.5 px-4 rounded-xl text-xs uppercase tracking-wider">
+            Buka Kunci & Lanjutkan Sesi
+          </button>
+          <button onclick="attemptProctorUnlock(true)" class="flex-1 gold-btn py-2.5 px-4 rounded-xl text-xs uppercase tracking-wider">
+            Reset & Ganti Identitas Murid
+          </button>
+        </div>
+      </div>
+
+      <p class="mt-5 text-[11px] text-slate-400">Pembuat Aplikasi: <strong class="text-amber-400">Ahmad Budi Leksono</strong></p>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- VIEW 4: MAIN ENTERPRISE CBT WORKSPACE (SIDEBAR + EXAM + NAVIGATOR)    -->
+  <!-- ===================================================================== -->
+  <div id="examWorkspace" class="hidden min-h-screen flex flex-col lg:flex-row">
+
+    <!-- MOBILE HEADER BAR -->
+    <header class="lg:hidden sticky top-0 z-40 bg-white/95 dark:bg-emeraldCard/95 glass-panel border-b border-emerald-500/25 px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <button onclick="toggleMobileSidebar()" class="p-2 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-300 border border-emerald-500/30">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <div>
+          <span class="text-xs font-extrabold text-amber-500 block leading-none">TKA ENTERPRISE</span>
+          <span class="text-[11px] text-slate-500 dark:text-slate-400" id="mobileStudentBadge">Peserta</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <!-- Mobile Timer -->
+        <div class="px-3 py-1.5 rounded-xl bg-amber-500/15 border border-amber-500/40 font-mono text-sm font-extrabold text-amber-600 dark:text-amber-400" id="mobileTimerDisplay">
+          80:00
+        </div>
+        <button onclick="toggleMobileNavDrawer()" class="p-2 rounded-xl bg-amber-500/15 text-amber-600 dark:text-amber-300 border border-amber-500/30" title="Navigasi Soal">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- LEFT SIDEBAR DASHBOARD -->
+    <aside id="sidebarDashboard" class="fixed inset-y-0 left-0 z-50 w-72 bg-white/95 dark:bg-emeraldCard/95 glass-panel border-r border-emerald-500/25 transform -translate-x-full lg:translate-x-0 lg:static lg:flex lg:flex-col justify-between transition-transform duration-300 overflow-y-auto">
+      <div class="p-5 space-y-5">
+        <!-- Brand Logo -->
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl gold-emerald-gradient flex items-center justify-center text-white font-black text-base shadow-md">
+              TKA
+            </div>
+            <div>
+              <h1 class="text-sm font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">TKA ASSESSMENT</h1>
+              <p class="text-[11px] font-semibold text-amber-600 dark:text-amber-400">Kelas IX • Fase D</p>
+            </div>
+          </div>
+          <button onclick="toggleMobileSidebar()" class="lg:hidden p-1.5 rounded-lg text-slate-400 hover:text-white">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+
+        <!-- Student Identity Card -->
+        <div class="p-4 rounded-2xl bg-gradient-to-br from-emerald-500/15 to-amber-500/10 border border-emerald-500/30 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-bold" data-i18n="cardStudentBadge">IDENTITAS PESERTA</span>
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          </div>
+          <p id="sideStudentName" class="text-sm font-extrabold text-slate-900 dark:text-white truncate">-</p>
+          <div class="grid grid-cols-2 gap-1.5 text-[11px] text-slate-600 dark:text-slate-300 pt-1 border-t border-emerald-500/20">
+            <div><span class="text-slate-400" data-i18n="lblClass">Kelas:</span> <strong id="sideStudentClass" class="text-amber-600 dark:text-amber-400">-</strong></div>
+            <div><span class="text-slate-400" data-i18n="lblNo">Presensi:</span> <strong id="sideStudentNumber" class="text-amber-600 dark:text-amber-400">-</strong></div>
+            <div class="col-span-2 truncate"><span class="text-slate-400" data-i18n="lblSchool">Madrasah:</span> <strong id="sideStudentSchool">-</strong></div>
+          </div>
+        </div>
+
+        <!-- Real-time Progress Dashboard -->
+        <div class="p-4 rounded-2xl bg-slate-100/80 dark:bg-emeraldDeep/80 border border-slate-200 dark:border-emerald-900 space-y-3">
+          <div class="flex items-center justify-between text-xs font-bold">
+            <span class="text-slate-600 dark:text-slate-300" data-i18n="progressTitle">Progres Pengerjaan</span>
+            <span id="progressPercentText" class="text-emerald-600 dark:text-emerald-400 font-mono">0%</span>
+          </div>
+          <div class="w-full h-2.5 bg-slate-200 dark:bg-emerald-950 rounded-full overflow-hidden">
+            <div id="progressBarFill" class="h-full bg-gradient-to-r from-emerald-500 to-amber-400 rounded-full transition-all duration-300" style="width: 0%"></div>
+          </div>
+          <div class="grid grid-cols-3 gap-2 text-center pt-1">
+            <div class="p-2 rounded-xl bg-emerald-500/15 border border-emerald-500/30">
+              <span id="statAnswered" class="block text-sm font-extrabold text-emerald-600 dark:text-emerald-400">0</span>
+              <span class="text-[10px] text-slate-500 dark:text-slate-400" data-i18n="statDone">Dijawab</span>
+            </div>
+            <div class="p-2 rounded-xl bg-amber-500/15 border border-amber-500/30">
+              <span id="statFlagged" class="block text-sm font-extrabold text-amber-600 dark:text-amber-400">0</span>
+              <span class="text-[10px] text-slate-500 dark:text-slate-400" data-i18n="statFlag">Ragu</span>
+            </div>
+            <div class="p-2 rounded-xl bg-slate-500/10 border border-slate-500/20">
+              <span id="statRemaining" class="block text-sm font-extrabold text-slate-700 dark:text-slate-300">50</span>
+              <span class="text-[10px] text-slate-500 dark:text-slate-400" data-i18n="statLeft">Kosong</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dashboard Navigation Menus -->
+        <nav class="space-y-1.5">
+          <p class="px-2 text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1" data-i18n="menuControl">Menu Kontrol Sesi</p>
+
+          <button onclick="openIdentityMenu()" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-emerald-500/15 hover:text-emerald-600 dark:hover:text-amber-400 transition">
+            <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"/></svg>
+            <span data-i18n="menuIdentity">Menu Identitas Murid</span>
+          </button>
+
+          <button onclick="toggleLanguage()" class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-emerald-500/15 transition">
+            <span class="flex items-center gap-3">
+              <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
+              <span data-i18n="menuLang">Bahasa Antarmuka</span>
+            </span>
+            <span id="sideLangBadge" class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-amber-500/20 text-amber-500">INDONESIA</span>
+          </button>
+
+          <button onclick="toggleTheme()" class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-emerald-500/15 transition">
+            <span class="flex items-center gap-3">
+              <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+              <span data-i18n="menuTheme">Pencahayaan Layar</span>
+            </span>
+            <span id="sideThemeBadge" class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-emerald-500/20 text-emerald-400">GELAP</span>
+          </button>
+
+          <button onclick="triggerManualLockout()" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-rose-600 dark:text-rose-400 hover:bg-rose-500/15 transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            <span data-i18n="menuLockout">Lock Out / Kunci Sesi</span>
+          </button>
+        </nav>
+      </div>
+
+      <!-- Sidebar Footer: Submit + Creator Credit -->
+      <div class="p-5 border-t border-slate-200 dark:border-emerald-900/80 space-y-3">
+        <button id="sideSubmitBtn" onclick="confirmSubmitExam()" class="w-full gold-btn py-3 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span data-i18n="btnFinishExam">Selesai & Kumpulkan</span>
+        </button>
+
+        <div class="text-center pt-1">
+          <p class="text-[10px] text-slate-400 uppercase tracking-wider">Developer & Architect</p>
+          <p class="text-xs font-extrabold text-amber-600 dark:text-amber-400">Ahmad Budi Leksono</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- CENTER CONTENT AREA: QUESTION STAGE OR RESULTS STAGE -->
+    <main class="flex-1 flex flex-col min-w-0">
+
+      <!-- DESKTOP TOP TELEMETRY BAR -->
+      <div class="hidden lg:flex items-center justify-between px-8 py-4 bg-white/80 dark:bg-emeraldCard/80 glass-panel border-b border-emerald-500/20">
+        <div class="flex items-center gap-3">
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            ANTI-CHEAT PROCTORING AKTIF
+          </span>
+          <span class="text-xs text-slate-500 dark:text-slate-400" data-i18n="headerSubject">Bahasa Inggris Kelas IX (Fase D) • K1–K4</span>
+        </div>
+
+        <!-- Real-Time 80-Minute Countdown Clock -->
+        <div class="flex items-center gap-4">
+          <div class="flex items-center gap-2.5 px-4 py-2 rounded-2xl bg-slate-100 dark:bg-emeraldDeep border border-amber-500/40 shadow-inner">
+            <svg class="w-5 h-5 text-amber-500 animate-spin" style="animation-duration: 10s;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <div>
+              <span class="block text-[9px] uppercase tracking-widest text-slate-400 font-bold" data-i18n="timerLabel">Sisa Waktu (80 Menit)</span>
+              <span id="desktopTimerDisplay" class="font-mono text-lg font-extrabold text-amber-600 dark:text-amber-400 tracking-wider">80:00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXAM STAGE CONTAINER -->
+      <div id="examStage" class="flex-1 p-4 sm:p-6 lg:p-8 max-w-5xl w-full mx-auto space-y-6">
+        <!-- Question Header Meta -->
+        <div class="flex flex-wrap items-center justify-between gap-3 bg-white dark:bg-emeraldCard border border-emerald-500/25 rounded-2xl p-4 shadow-sm">
+          <div class="flex items-center gap-3">
+            <span class="px-3.5 py-1.5 rounded-xl gold-emerald-gradient text-white font-mono text-sm font-extrabold shadow">
+              <span data-i18n="qWord">SOAL</span> <span id="currentQNumberBadge">1</span> / 50
+            </span>
+            <div class="flex flex-wrap items-center gap-1.5">
+              <span id="qCompBadge" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">K1</span>
+              <span id="qLevelBadge" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30">L1</span>
+              <span id="qTopicBadge" class="hidden sm:inline-block px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-100 dark:bg-emeraldDeep text-slate-600 dark:text-slate-300">Topic</span>
+            </div>
+          </div>
+
+          <button id="flagBtn" onclick="toggleFlagCurrent()" class="px-3.5 py-2 rounded-xl text-xs font-bold border border-amber-500/40 bg-amber-500/10 text-amber-700 dark:text-amber-300 hover:bg-amber-500/25 transition flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"/></svg>
+            <span id="flagBtnText" data-i18n="btnFlag">Tandai Ragu-Ragu</span>
+          </button>
+        </div>
+
+        <!-- Stimulus Text / Table / Notice Card -->
+        <div id="stimulusContainer" class="bg-white dark:bg-emeraldCard border-l-4 border-l-amber-500 border border-emerald-500/25 rounded-2xl p-5 sm:p-6 shadow-md">
+          <div class="flex items-center justify-between mb-3 pb-2 border-b border-slate-200 dark:border-emerald-800/60">
+            <span id="stimulusTitle" class="text-xs font-mono font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">READING STIMULUS</span>
+            <span class="text-[11px] text-slate-400">Baca dengan saksama</span>
+          </div>
+          <div id="stimulusBody" class="text-sm sm:text-base text-slate-800 dark:text-slate-100 leading-relaxed space-y-3"></div>
+        </div>
+
+        <!-- Question Stem & 4 Options Card -->
+        <div class="bg-white dark:bg-emeraldCard border border-emerald-500/25 rounded-2xl p-5 sm:p-6 shadow-md space-y-5">
+          <p id="questionStem" class="text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-snug"></p>
+
+          <div id="optionsContainer" class="space-y-3">
+            <!-- Dynamically injected options A, B, C, D -->
+          </div>
+        </div>
+
+        <!-- Bottom Prev / Next Controls -->
+        <div class="flex items-center justify-between gap-3 pt-2 pb-8">
+          <button id="prevQBtn" onclick="navigateQuestion(-1)" class="px-5 py-3 rounded-xl text-xs sm:text-sm font-bold border border-emerald-500/40 bg-white dark:bg-emeraldCard hover:bg-emerald-500/15 transition flex items-center gap-2 disabled:opacity-40">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            <span data-i18n="btnPrev">Sebelumnya</span>
+          </button>
+
+          <button id="nextQBtn" onclick="navigateQuestion(1)" class="emerald-btn px-6 py-3 rounded-xl text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2">
+            <span data-i18n="btnNext">Soal Berikutnya</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- =================================================================== -->
+      <!-- RESULTS, DIAGNOSTIC ANALYTICS & CERTIFICATE VIEW (AFTER SUBMISSION) -->
+      <!-- =================================================================== -->
+      <div id="resultsStage" class="hidden flex-1 p-4 sm:p-6 lg:p-8 max-w-5xl w-full mx-auto space-y-8 pb-16">
+        
+        <!-- Score Hero Banner -->
+        <div class="bg-white dark:bg-emeraldCard border border-amber-500/40 rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
+            <div class="space-y-2 text-center md:text-left">
+              <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500/20 text-emerald-600 dark:text-emerald-300 border border-emerald-500/30" data-i18n="resBadge">LAPORAN HASIL ASESMEN TKA</span>
+              <h2 id="resStudentName" class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">-</h2>
+              <p id="resStudentMeta" class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">-</p>
+              <div class="pt-2 flex flex-wrap justify-center md:justify-start gap-2">
+                <span id="resCategoryBadge" class="px-3.5 py-1.5 rounded-xl text-xs font-extrabold uppercase tracking-wider"></span>
+                <span id="resTimeTakenBadge" class="px-3.5 py-1.5 rounded-xl text-xs font-mono font-semibold bg-slate-100 dark:bg-emeraldDeep text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-emerald-800"></span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-5">
+              <div class="text-center p-5 rounded-3xl bg-gradient-to-br from-emerald-950 to-slate-900 border-2 border-amber-400 shadow-lg min-w-[140px]">
+                <span class="block text-[11px] font-bold uppercase tracking-widest text-amber-400" data-i18n="finalScoreLbl">NILAI AKHIR</span>
+                <span id="resFinalScore" class="block text-5xl font-black text-white my-1 font-mono">0</span>
+                <span id="resCorrectCount" class="text-xs text-emerald-400 font-semibold">0 / 50 Benar</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CERTIFICATE SECTION (UNLOCKED IF SCORE >= 80) -->
+        <div id="certificateUnlockedSection" class="hidden space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <h3 class="text-lg sm:text-xl font-extrabold text-amber-600 dark:text-amber-400 flex items-center gap-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                <span data-i18n="certHeading">Sertifikat Kelulusan Digital (Skor ≥ 80)</span>
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400" data-i18n="certSub">Selamat! Anda memenuhi standar ketuntasan minimal 80 untuk memperoleh sertifikat resmi.</p>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <button onclick="downloadCertificatePNG()" class="emerald-btn px-4 py-2.5 rounded-xl text-xs flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                <span>Download PNG</span>
+              </button>
+              <button onclick="window.print()" class="gold-btn px-4 py-2.5 rounded-xl text-xs flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                <span>Cetak / PDF</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Printable Certificate Frame -->
+          <div id="certificatePrintArea" class="cert-frame rounded-2xl p-6 sm:p-12 text-center text-white relative overflow-hidden">
+            <div class="border border-amber-500/30 rounded-xl p-6 sm:p-10 relative">
+              <div class="flex items-center justify-between text-[10px] sm:text-xs font-mono text-emerald-400 mb-4">
+                <span>ID: <span id="certSerialId">TKA-2026-XXXX</span></span>
+                <span>FASE D • KELAS IX MTs/SMP</span>
+              </div>
+
+              <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-amber-500/20 border border-amber-400 flex items-center justify-center">
+                <svg class="w-8 h-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+              </div>
+
+              <h4 class="font-serif text-2xl sm:text-4xl font-bold tracking-wide text-amber-400 uppercase">Certificate of Achievement</h4>
+              <p class="text-xs sm:text-sm uppercase tracking-[0.25em] text-emerald-300 mt-1 mb-6">Sertifikat Capaian Kompetensi Asesmen Model TKA</p>
+
+              <p class="text-xs sm:text-sm text-slate-300">Diberikan dengan bangga kepada / Proudly presented to:</p>
+              <h3 id="certStudentName" class="font-serif text-2xl sm:text-4xl font-bold text-white my-3 border-b border-amber-500/40 inline-block px-8 pb-2">-</h3>
+              
+              <p id="certStudentDetails" class="text-xs sm:text-sm text-emerald-200 font-medium mb-5">
+                Kelas: - • Nomor Presensi: - • Asal Madrasah: -
+              </p>
+
+              <p class="text-xs sm:text-sm text-slate-300 max-w-2xl mx-auto leading-relaxed mb-6">
+                Telah menyelesaikan <strong>Paket Latihan Asesmen Model TKA: Bahasa Inggris Kelas IX (Fase D)</strong> dengan predikat <strong id="certPredicate" class="text-amber-400">SANGAT BAIK</strong> dan perolehan skor akhir:
+              </p>
+
+              <div class="inline-flex items-center gap-4 px-8 py-3 rounded-2xl bg-emerald-950/90 border border-amber-400/60 mb-8">
+                <span class="text-xs uppercase tracking-widest text-slate-300">SKOR AKHIR</span>
+                <span id="certScoreValue" class="font-mono text-3xl sm:text-4xl font-black text-amber-400">85 / 100</span>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-emerald-800/70 text-xs">
+                <div class="text-center sm:text-left">
+                  <p class="text-slate-400">Tanggal Penerbitan / Issued Date:</p>
+                  <p id="certDateText" class="font-bold text-white mt-1">-</p>
+                  <p class="text-[11px] text-emerald-400 mt-1">Verified by TKA Enterprise Proctoring System</p>
+                </div>
+                <div class="text-center sm:text-right">
+                  <p class="text-slate-400">Pengembang & Pembuat Aplikasi,</p>
+                  <p class="font-serif italic text-lg text-amber-400 mt-2">Ahmad Budi Leksono</p>
+                  <p class="font-bold text-white underline decoration-amber-500/60 mt-1">Ahmad Budi Leksono</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CERTIFICATE LOCKED NOTICE (IF SCORE < 80) -->
+        <div id="certificateLockedSection" class="hidden bg-white dark:bg-emeraldCard border border-rose-500/40 rounded-3xl p-6 text-center space-y-3">
+          <div class="w-12 h-12 mx-auto rounded-2xl bg-rose-500/15 text-rose-500 flex items-center justify-center">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          </div>
+          <h3 class="text-lg font-extrabold text-slate-900 dark:text-white">Sertifikat Belum Terbuka (Minimal Skor 80)</h3>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 max-w-xl mx-auto">
+            Skor Anda saat ini belum mencapai batas kelulusan sertifikat minimal <strong>80</strong>. Pelajari pembahasan di bawah ini, lalu klik <strong>Menu Identitas Murid</strong> untuk mengulang latihan.
+          </p>
+        </div>
+
+        <!-- DIAGNOSTIC ANALYTICS: COMPETENCY (K1-K4) & LEVEL (L1-L3) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white dark:bg-emeraldCard border border-emerald-500/25 rounded-3xl p-6 space-y-4">
+            <h3 class="text-base font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+              Analisis Capaian Kompetensi (K1–K4)
+            </h3>
+            <div id="competencyBreakdownList" class="space-y-3"></div>
+          </div>
+
+          <div class="bg-white dark:bg-emeraldCard border border-emerald-500/25 rounded-3xl p-6 space-y-4">
+            <h3 class="text-base font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+              Analisis Level Kognitif (L1–L3)
+            </h3>
+            <div id="levelBreakdownList" class="space-y-3"></div>
+            <div id="diagnosticAdviceBox" class="p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-xs text-slate-700 dark:text-slate-200 leading-relaxed"></div>
+          </div>
+        </div>
+
+        <!-- FULL ANSWER KEY & PEMBAHASAN REVIEW -->
+        <div class="bg-white dark:bg-emeraldCard border border-emerald-500/25 rounded-3xl p-6 space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-200 dark:border-emerald-800">
+            <h3 class="text-lg font-extrabold text-slate-900 dark:text-white">Kunci Jawaban & Pembahasan Lengkap (50 Butir)</h3>
+            <button onclick="openIdentityMenu()" class="gold-btn px-4 py-2 rounded-xl text-xs">Ulangi / Peserta Baru</button>
+          </div>
+          <div id="reviewQuestionsList" class="space-y-4"></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- RIGHT SIDEBAR: MENU NAVIGASI SOAL (1 - 50) -->
+    <aside id="questionNavDrawer" class="fixed inset-y-0 right-0 z-50 w-80 bg-white/95 dark:bg-emeraldCard/95 glass-panel border-l border-emerald-500/25 transform translate-x-full xl:translate-x-0 xl:static xl:flex xl:flex-col justify-between transition-transform duration-300 overflow-y-auto">
+      <div class="p-5 space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-200 dark:border-emerald-800/70 pb-3">
+          <div>
+            <h3 class="text-sm font-extrabold text-slate-900 dark:text-white uppercase tracking-wider" data-i18n="navGridTitle">Navigasi Soal</h3>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400">Klik nomor untuk berpindah cepat</p>
+          </div>
+          <button onclick="toggleMobileNavDrawer()" class="xl:hidden p-1.5 rounded-lg text-slate-400 hover:text-white">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+
+        <!-- Legend -->
+        <div class="grid grid-cols-2 gap-2 text-[11px] text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-emeraldDeep/70 p-3 rounded-xl">
+          <div class="flex items-center gap-2"><span class="w-3 h-3 rounded bg-emerald-500 inline-block"></span> <span data-i18n="legAnswered">Sudah Dijawab</span></div>
+          <div class="flex items-center gap-2"><span class="w-3 h-3 rounded bg-amber-400 inline-block"></span> <span data-i18n="legFlagged">Ragu-Ragu</span></div>
+          <div class="flex items-center gap-2"><span class="w-3 h-3 rounded border-2 border-amber-400 bg-emerald-900/40 inline-block"></span> <span data-i18n="legCurrent">Aktif</span></div>
+          <div class="flex items-center gap-2"><span class="w-3 h-3 rounded bg-slate-300 dark:bg-emerald-950 border border-slate-400/40 inline-block"></span> <span data-i18n="legEmpty">Belum Dijawab</span></div>
+        </div>
+
+        <!-- 50 Number Grid -->
+        <div id="questionNumberGrid" class="grid grid-cols-5 gap-2 pt-1">
+          <!-- Buttons 1..50 injected dynamically -->
+        </div>
+      </div>
+
+      <div class="p-5 border-t border-slate-200 dark:border-emerald-900/80 text-center">
+        <p class="text-[11px] text-slate-500 dark:text-slate-400" data-i18n="navTip">Pastikan seluruh 50 soal telah terjawab sebelum waktu 80 menit habis.</p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Hidden Canvas for High-Res PNG Certificate Export -->
+  <canvas id="certExportCanvas" width="1400" height="990" class="hidden"></canvas>
+
+  <script>
+    // =========================================================================
+    // 1. COMPLETE DATASET: ALL 17 STIMULI & 50 QUESTIONS FROM TKA DOCUMENT
+    // =========================================================================
+    const STIMULUS_DATA = {
+      T1: {
+        title: "Text 1 (Questions 1 – 3) • Descriptive Text",
+        html: `<p>Sunrise Hill is a small hill in the northern part of Lembang Village. It is about 20 minutes' walk from the village square. The hill is covered with pine trees and wild orchids, so the air there is fresh and fragrant. At the top, visitors can see a wide green valley and, on clear mornings, the silhouette of a distant volcano. A stone bench and a small wooden hut stand near the peak, and the hut sells hot ginger tea. Because the path is steep and slippery after rain, visitors are advised to wear sturdy shoes.</p>`
+      },
+      T2: {
+        title: "Text 2 (Questions 4 – 5) • Personality Description",
+        html: `<p>Dina and Rafi are twin siblings, but their characters are very different. Dina is outgoing and talkative. She never feels shy to speak in front of the class, and she often volunteers to lead group discussions. However, she sometimes forgets her homework because she is easily distracted. Rafi, on the other hand, is quiet and thoughtful. He rarely speaks in public, but he always prepares carefully and checks his work twice. When their teacher needs someone to write a detailed report, she usually asks Rafi.</p>`
+      },
+      T3: {
+        title: "Text 3 (Questions 6 – 8) • Recount Text (Biography)",
+        html: `<p>Ki Hajar Dewantara was born in Yogyakarta on 2 May 1889. His birth name was Raden Mas Soewardi Soerjaningrat. As a young man, he worked as a journalist and wrote sharp articles that criticized the colonial government. Because of his writings, he was exiled to the Netherlands in 1913. After returning home, he founded the Taman Siswa school in 1922 so that children from ordinary families could get an education. In 1945, he became the first Minister of Education of Indonesia. He passed away in 1959. Today, his birthday is celebrated as National Education Day.</p>`
+      },
+      T4: {
+        title: "Text 4 (Questions 9 – 10) • Recount Text (Experience)",
+        html: `<p>Last Saturday, my class went to a recycling center for a school trip. First, we gathered at school at seven o'clock and took a bus. When we arrived, a guide explained how plastic waste is sorted. While she was explaining, I was taking notes, but my pen suddenly stopped working, so I borrowed one from Gita. After that, we tried making notebooks from used paper. In the end, we promised to bring our own shopping bags and water bottles. Although I was tired when I got home, I felt proud because I had learned something useful.</p>`
+      },
+      T5: {
+        title: "Text 5 (Questions 11 – 13) • Procedure Text (Recipe)",
+        html: `<p class="font-bold text-amber-600 dark:text-amber-400">How to Make Fruit Ice</p>
+               <p><strong>Ingredients:</strong> 2 cups of orange juice, 1 cup of chopped mango, 1 tablespoon of honey, and an ice cube mold.</p>
+               <p><strong>Steps:</strong></p>
+               <ol class="list-decimal list-inside space-y-1 pl-2">
+                 <li>Pour the orange juice into a bowl.</li>
+                 <li>Add the chopped mango and the honey, then stir well.</li>
+                 <li>Spoon the mixture into the mold.</li>
+                 <li>Put the mold in the freezer for at least four hours.</li>
+                 <li>Take the mold out and press the ice gently to remove it.</li>
+               </ol>`
+      },
+      T6: {
+        title: "Text 6 (Questions 14 – 15) • Procedure Text (Manual)",
+        html: `<p class="font-bold text-amber-600 dark:text-amber-400 mb-2">Electric Kettle: Troubleshooting Guide</p>
+               <div class="overflow-x-auto">
+                 <table class="w-full text-xs sm:text-sm border-collapse border border-emerald-500/40">
+                   <thead>
+                     <tr class="bg-emerald-500/20 text-left">
+                       <th class="border border-emerald-500/40 p-2">Problem</th>
+                       <th class="border border-emerald-500/40 p-2">Possible cause</th>
+                       <th class="border border-emerald-500/40 p-2">What to do</th>
+                     </tr>
+                   </thead>
+                   <tbody>
+                     <tr>
+                       <td class="border border-emerald-500/40 p-2">The kettle does not turn on</td>
+                       <td class="border border-emerald-500/40 p-2">The plug is loose, or the kettle is not placed properly on its base</td>
+                       <td class="border border-emerald-500/40 p-2">Check the plug and place the kettle properly on its base</td>
+                     </tr>
+                     <tr>
+                       <td class="border border-emerald-500/40 p-2">The kettle turns off before the water boils</td>
+                       <td class="border border-emerald-500/40 p-2">Too much limescale inside the kettle</td>
+                       <td class="border border-emerald-500/40 p-2">Clean it with a mixture of water and vinegar</td>
+                     </tr>
+                     <tr>
+                       <td class="border border-emerald-500/40 p-2">Water leaks from the bottom</td>
+                       <td class="border border-emerald-500/40 p-2">The kettle body is cracked</td>
+                       <td class="border border-emerald-500/40 p-2">Stop using the kettle immediately and contact the service center</td>
+                     </tr>
+                   </tbody>
+                 </table>
+               </div>
+               <p class="mt-2 text-xs font-semibold text-rose-500">Caution: Never fill the kettle above the MAX line.</p>`
+      },
+      T7: {
+        title: "Text 7 (Questions 16 – 19) • Narrative Text (Legend)",
+        html: `<p>Long ago, in a fishing village on the coast of West Sumatra, there lived a poor widow and her son, Malin Kundang. One day, Malin asked his mother's permission to work on a merchant's ship. Although she was sad, she let him go and prayed for his safety. Years later, Malin became a rich merchant and married a beautiful woman. When his ship stopped at his home village, his mother ran to the harbor to hug him. But Malin was ashamed of her old clothes. In front of his wife and crew, he said, "I don't know this old woman!" Heartbroken, the mother asked God to teach her son a lesson. A great storm came, and Malin's ship was destroyed. Malin himself was turned into a stone.</p>`
+      },
+      T8: {
+        title: "Text 8 (Questions 20 – 22) • Report Text",
+        html: `<p>The Komodo dragon is the largest living lizard in the world. It lives on a few islands in eastern Indonesia, including Komodo, Rinca, and Flores. An adult Komodo dragon can grow up to about three meters long and weigh about 70 kilograms. It is a carnivore, so it eats deer, birds, and smaller reptiles. It hunts by waiting quietly and then attacking quickly, and its bite contains venom that weakens its prey. Because its habitat is shrinking, the Komodo dragon is now a protected animal.</p>`
+      },
+      T9: {
+        title: "Text 9 (Questions 23 – 24) • School Club Information Table",
+        html: `<p class="font-bold text-amber-600 dark:text-amber-400 mb-2">School Club Information</p>
+               <div class="overflow-x-auto">
+                 <table class="w-full text-xs sm:text-sm border-collapse border border-emerald-500/40">
+                   <thead>
+                     <tr class="bg-emerald-500/20 text-left">
+                       <th class="border border-emerald-500/40 p-2">Club</th>
+                       <th class="border border-emerald-500/40 p-2">Members</th>
+                       <th class="border border-emerald-500/40 p-2">Meetings per week</th>
+                       <th class="border border-emerald-500/40 p-2">Monthly fee</th>
+                     </tr>
+                   </thead>
+                   <tbody>
+                     <tr>
+                       <td class="border border-emerald-500/40 p-2 font-semibold">Drama Club</td>
+                       <td class="border border-emerald-500/40 p-2">24</td>
+                       <td class="border border-emerald-500/40 p-2">2</td>
+                       <td class="border border-emerald-500/40 p-2">Rp10,000</td>
+                     </tr>
+                     <tr>
+                       <td class="border border-emerald-500/40 p-2 font-semibold">Debate Club</td>
+                       <td class="border border-emerald-500/40 p-2">18</td>
+                       <td class="border border-emerald-500/40 p-2">1</td>
+                       <td class="border border-emerald-500/40 p-2">Rp15,000</td>
+                     </tr>
+                     <tr>
+                       <td class="border border-emerald-500/40 p-2 font-semibold">Robotics Club</td>
+                       <td class="border border-emerald-500/40 p-2">12</td>
+                       <td class="border border-emerald-500/40 p-2">3</td>
+                       <td class="border border-emerald-500/40 p-2">Rp25,000</td>
+                     </tr>
+                   </tbody>
+                 </table>
+               </div>`
+      },
+      T10: {
+        title: "Text 10 (Questions 25 – 26) • Announcement",
+        html: `<div class="p-4 rounded-xl border border-amber-500/40 bg-amber-500/5 space-y-1.5">
+                 <p class="text-center font-extrabold tracking-widest text-amber-600 dark:text-amber-400">ANNOUNCEMENT</p>
+                 <p class="text-center font-bold">SMP Harapan Bangsa English Speech Contest</p>
+                 <p>All Grade 9 students are invited to join the contest.</p>
+                 <p><strong>Date:</strong> Saturday, 14 March</p>
+                 <p><strong>Time:</strong> 08.00 a.m. to 12.00 noon</p>
+                 <p><strong>Place:</strong> School Hall</p>
+                 <p><strong>Registration:</strong> Submit the form to Mrs. Lestari before Wednesday, 4 March. Participants must bring a speech script of 2 to 3 minutes.</p>
+                 <p>The winners will represent our school at the district level.</p>
+                 <p class="pt-1 font-semibold italic">Principal</p>
+               </div>`
+      },
+      T11: {
+        title: "Text 11 (Questions 27 – 28) • Condolence Card",
+        html: `<div class="p-4 rounded-xl border border-emerald-500/40 bg-emerald-500/5 space-y-2 italic">
+                 <p>Dear Mrs. Wulan,</p>
+                 <p>We were deeply saddened to hear about the passing of your father. Please accept our sincere condolences. May he rest in peace, and may you and your family be given strength.</p>
+                 <p>Sincerely, Class IX-B</p>
+               </div>`
+      },
+      T12: {
+        title: "Text 12 (Questions 29 – 30) • Advertisement",
+        html: `<div class="p-4 rounded-xl border border-amber-500/40 bg-amber-500/5 space-y-1.5">
+                 <p class="font-extrabold text-amber-600 dark:text-amber-400">SPEAK UP ENGLISH COURSE: Junior Class</p>
+                 <p><strong>Age:</strong> 12 to 15 years</p>
+                 <p><strong>Schedule:</strong> Monday and Thursday, 4.00 to 5.30 p.m.</p>
+                 <p><strong>Fee:</strong> Rp300,000 per month (Rp250,000 for a sibling of a registered student)</p>
+                 <p>Free trial class on the first Monday of every month</p>
+                 <p>Register at Jl. Melati No. 5 or call 0812-3456-7890</p>
+               </div>`
+      },
+      T13: {
+        title: "Text 13 (Questions 31 – 32) • Invitation & Short Message",
+        html: `<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                 <div class="p-3.5 rounded-xl border border-emerald-500/40 bg-emerald-500/5 space-y-1">
+                   <p class="font-bold text-emerald-600 dark:text-emerald-400">Invitation</p>
+                   <p>You are invited to Nadia's 15th birthday party.</p>
+                   <p><strong>Date:</strong> Saturday, 22 August</p>
+                   <p><strong>Time:</strong> 4.00 p.m.</p>
+                   <p><strong>Dress code:</strong> casual</p>
+                   <p>Please confirm your attendance by 20 August (0857-1111-2222).</p>
+                 </div>
+                 <div class="p-3.5 rounded-xl border border-amber-500/40 bg-amber-500/5 space-y-1">
+                   <p class="font-bold text-amber-600 dark:text-amber-400">Short message</p>
+                   <p>Mom, I'm going to Rafi's house to finish our science project. I'll be back at 6 p.m. Dinner is in the fridge. Please heat it up. (Tari)</p>
+                 </div>
+               </div>`
+      },
+      T14: {
+        title: "Text 14 (Question 33) • Personal Letter",
+        html: `<div class="p-4 rounded-xl border border-emerald-500/40 bg-emerald-500/5 space-y-2">
+                 <p>Dear Grandma,</p>
+                 <p>Thank you for the batik dress you sent for my birthday. The color is lovely, and it fits me perfectly. I wore it to my party last Sunday, and all my friends said I looked beautiful. I hope you can visit us during the holiday.</p>
+                 <p>Love, Salsa</p>
+               </div>`
+      },
+      T15: {
+        title: "Text 15 (Questions 34 – 35) • Warning & Danger Signs",
+        html: `<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono text-center">
+                 <div class="p-4 rounded-xl bg-amber-500/20 border-2 border-amber-500 text-amber-700 dark:text-amber-300 font-extrabold">
+                   Sign 1: CAUTION: WET FLOOR
+                 </div>
+                 <div class="p-4 rounded-xl bg-rose-500/20 border-2 border-rose-500 text-rose-700 dark:text-rose-300 font-extrabold">
+                   Sign 2: DANGER! HIGH VOLTAGE. KEEP OUT.
+                 </div>
+               </div>`
+      },
+      T16: {
+        title: "Text 16 (Questions 36 – 37) • Food & Medicine Labels",
+        html: `<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                 <div class="p-3.5 rounded-xl border border-amber-500/40 bg-amber-500/5 space-y-1 text-xs sm:text-sm">
+                   <p class="font-bold text-amber-600 dark:text-amber-400">Label 1: Choco-Oat Biscuits</p>
+                   <p>Net weight: 120 g. Ingredients: wheat flour, oats, sugar, cocoa, palm oil, milk powder. Contains: wheat, milk. Best before: 30 September 2027. Store in a cool, dry place.</p>
+                 </div>
+                 <div class="p-3.5 rounded-xl border border-emerald-500/40 bg-emerald-500/5 space-y-1 text-xs sm:text-sm">
+                   <p class="font-bold text-emerald-600 dark:text-emerald-400">Label 2: Cough Syrup</p>
+                   <p>For relief of dry cough. Keep out of reach of children. Store below 30 °C. Do not use if the seal is broken. Consult a doctor if the cough lasts more than 7 days.</p>
+                 </div>
+               </div>`
+      },
+      T17: {
+        title: "Text 17 (Questions 38 – 50) • Short Situations & Grammar/Expressions",
+        html: `<p class="italic text-slate-600 dark:text-slate-300">Read each short situation carefully and choose the best answer to complete the sentence or dialog.</p>`
+      }
+    };
+
+    // Original 50 Questions with exact keys, competencies, levels, and pembahasan
+    const RAW_QUESTIONS = [
+      { id: 1, stim: "T1", comp: "K1", level: "L1", topic: "Descriptive text (a place)", q: "What is the main purpose of the text?", opts: ["To tell how to climb Sunrise Hill", "To describe the features of Sunrise Hill", "To persuade people to buy ginger tea", "To report a trip to Lembang Village"], ans: 1, exp: "Teks menggambarkan lokasi, pohon, pemandangan, dan fasilitas Sunrise Hill, sehingga tujuannya mendeskripsikan, bukan menjelaskan cara mendaki." },
+      { id: 2, stim: "T1", comp: "K1", level: "L1", topic: "Descriptive text (synonym)", q: "The word 'sturdy' in the last sentence is closest in meaning to ....", opts: ["strong", "colorful", "light", "cheap"], ans: 0, exp: "'Sturdy' berarti kokoh atau kuat. Sepatu harus kuat karena jalan curam dan licin setelah hujan." },
+      { id: 3, stim: "T1", comp: "K4", level: "L3", topic: "Descriptive text (action)", q: "Dewi wants to see the silhouette of the volcano from the top of Sunrise Hill. What should she do?", opts: ["Climb the hill right after it rains", "Arrive at the top early on a clear morning", "Buy ginger tea at the village square at noon", "Sit on the stone bench in the afternoon"], ans: 1, exp: "Siluet gunung hanya disebut terlihat pada 'clear mornings' dari puncak, jadi Dewi harus tiba di puncak pagi hari saat cuaca cerah." },
+
+      { id: 4, stim: "T2", comp: "K2", level: "L2", topic: "Personality description", q: "Which statement describes Dina best?", opts: ["She is shy but careful.", "She is quiet and diligent.", "She is sociable but not always organized.", "She is thoughtful and patient."], ans: 2, exp: "Dina digambarkan 'outgoing and talkative' tetapi sering lupa PR karena mudah teralihkan: ramah tetapi tidak selalu teratur." },
+      { id: 5, stim: "T2", comp: "K4", level: "L3", topic: "Personality description", q: "Their teacher needs one student to lead a class discussion and another student to write a detailed report. Which choice is the most suitable?", opts: ["Rafi for both tasks, because he never makes mistakes.", "Rafi for the discussion because he is thoughtful, and Dina for the report because she is talkative.", "Dina for both tasks, because she often volunteers.", "Dina for the discussion because she is confident in speaking, and Rafi for the report because he is careful."], ans: 3, exp: "Dina percaya diri berbicara dan sering memimpin diskusi. Rafi teliti dan biasa diminta menulis laporan terperinci." },
+
+      { id: 6, stim: "T3", comp: "K2", level: "L1", topic: "Recount text (biography)", q: "Which statement is true according to the text?", opts: ["He founded Taman Siswa before he was exiled.", "He was exiled because of his articles.", "He became a minister in 1922.", "He was born in the Netherlands."], ans: 1, exp: "Teks menyatakan ia diasingkan karena tulisannya. Taman Siswa berdiri 1922 (setelah 1913), menjadi menteri 1945, dan lahir di Yogyakarta." },
+      { id: 7, stim: "T3", comp: "K1", level: "L1", topic: "Recount text (vocabulary)", q: "'Because of his writings, he was exiled to the Netherlands in 1913.' The word 'exiled' means ....", opts: ["forced to leave his own country", "invited to study abroad", "sent to work as a teacher", "promoted to a higher position"], ans: 0, exp: "'Exiled' berarti diasingkan, yaitu dipaksa meninggalkan negaranya." },
+      { id: 8, stim: "T3", comp: "K3", level: "L2", topic: "Recount text (inference)", q: "What can we infer about the purpose of founding Taman Siswa?", opts: ["To train new journalists", "To criticize the Dutch government in class", "To celebrate National Education Day", "To give education to children from ordinary families"], ans: 3, exp: "Teks menyebut Taman Siswa didirikan 'so that children from ordinary families could get an education'." },
+
+      { id: 9, stim: "T4", comp: "K2", level: "L2", topic: "Recount text (sequence)", q: "Which event happened right after the guide's explanation?", opts: ["The writer borrowed a pen from Gita.", "The class took a bus.", "The class made notebooks from used paper.", "The students gathered at school."], ans: 2, exp: "Urutan: guide menjelaskan (sambil menulis catatan), lalu 'After that' kelas membuat buku catatan dari kertas bekas." },
+      { id: 10, stim: "T4", comp: "K1", level: "L2", topic: "Past progressive", q: "In 'While she was explaining, I was taking notes,' the phrase 'I was taking notes' is used to show ....", opts: ["a habit that the writer always does", "an action in progress when another action happened", "a plan that the writer will do later", "a completed action in the distant past"], ans: 1, exp: "Past progressive ('was taking') menunjukkan tindakan yang sedang berlangsung ketika tindakan lain terjadi (pulpen berhenti berfungsi)." },
+
+      { id: 11, stim: "T5", comp: "K1", level: "L1", topic: "Procedure text (recipe)", q: "What is the function of the text?", opts: ["To explain how to make fruit ice", "To describe the taste of fruit ice", "To report the sale of fruit ice", "To retell a cooking experience"], ans: 0, exp: "Teks berisi bahan dan langkah berurutan, sehingga fungsinya menjelaskan cara membuat es buah." },
+      { id: 12, stim: "T5", comp: "K4", level: "L3", topic: "Procedure text (next step)", q: "Anita has just finished stirring the mixture. What should she do next?", opts: ["Put the mold in the freezer.", "Spoon the mixture into the mold.", "Pour the orange juice into a bowl.", "Press the ice gently."], ans: 1, exp: "Setelah mengaduk (langkah 2), langkah berikutnya adalah menuangkan campuran ke cetakan (langkah 3)." },
+      { id: 13, stim: "T5", comp: "K4", level: "L3", topic: "Procedure text (time calc)", q: "Anita wants the fruit ice to be ready at 3 p.m. According to the recipe, what is the latest time she should put the mold in the freezer?", opts: ["10 a.m.", "11 a.m.", "12 noon", "1 p.m."], ans: 1, exp: "Pembekuan minimal 4 jam. Agar siap pukul 15.00, cetakan harus masuk freezer paling lambat pukul 11.00." },
+
+      { id: 14, stim: "T6", comp: "K4", level: "L3", topic: "Procedure text (manual)", q: "Rina's kettle turns off before the water boils. According to the guide, what should she do?", opts: ["Contact the service center.", "Check the plug.", "Clean it with water and vinegar.", "Place it on its base again."], ans: 2, exp: "Pada tabel, masalah 'turns off before the water boils' disebabkan kerak kapur dan diatasi dengan membersihkannya memakai air dan cuka." },
+      { id: 15, stim: "T6", comp: "K3", level: "L3", topic: "Procedure text (safety)", q: "Rina sees water dripping from the bottom of her kettle. She plans to keep using it carefully until the weekend. Which response is the most appropriate based on the guide?", opts: ["Agree, because the problem is only a small one.", "Agree, as long as she cleans the kettle with vinegar first.", "Disagree, because she must fill the kettle above the MAX line.", "Disagree, because a cracked body means the kettle is unsafe to use."], ans: 3, exp: "Bodi ketel yang retak berarti ketel harus segera dihentikan penggunaannya. Karena itu rencana Rina tidak tepat." },
+
+      { id: 16, stim: "T7", comp: "K2", level: "L3", topic: "Narrative text (complication)", q: "Which event is the complication of the story?", opts: ["Malin asked for his mother's permission to sail.", "Malin denied his mother in front of other people.", "Malin became a rich merchant.", "Malin was turned into a stone."], ans: 1, exp: "Komplikasi adalah munculnya masalah utama, yaitu Malin menyangkal ibunya di depan istri dan awak kapal." },
+      { id: 17, stim: "T7", comp: "K3", level: "L2", topic: "Narrative text (character)", q: "Which word best describes Malin Kundang at the end of the story?", opts: ["Grateful", "Arrogant", "Generous", "Loyal"], ans: 1, exp: "Malin malu pada pakaian ibunya yang lusuh lalu menyangkalnya. Sikap ini menunjukkan kesombongan (arrogant)." },
+      { id: 18, stim: "T7", comp: "K3", level: "L3", topic: "Narrative text (moral value)", q: "Which moral value is the most suitable for the story?", opts: ["Children should respect their parents.", "Hard work always brings wealth.", "Fishing is a noble job.", "Travelers must obey the ship's captain."], ans: 0, exp: "Akibat durhaka kepada ibu, Malin dihukum. Nilai moralnya: anak harus menghormati orang tua." },
+      { id: 19, stim: "T7", comp: "K1", level: "L2", topic: "Passive voice", q: "'Malin's ship was destroyed.' Which sentence is the correct active form of this sentence?", opts: ["A great storm destroys Malin's ship.", "A great storm was destroying Malin's ship.", "Malin's ship destroyed a great storm.", "A great storm destroyed Malin's ship."], ans: 3, exp: "Bentuk pasif 'was destroyed' menjadi aktif simple past: 'A great storm destroyed Malin's ship.'" },
+
+      { id: 20, stim: "T8", comp: "K1", level: "L1", topic: "Report text (main idea)", q: "What does the text mainly discuss?", opts: ["The hunting techniques of lizards", "The history of Komodo Island", "General information about the Komodo dragon", "How to protect animals at home"], ans: 2, exp: "Teks memuat informasi umum tentang komodo: ukuran, habitat, makanan, cara berburu, dan status perlindungan." },
+      { id: 21, stim: "T8", comp: "K2", level: "L2", topic: "Report text (details)", q: "Which statement is NOT supported by the text?", opts: ["Komodo dragons live in all parts of Indonesia.", "Komodo dragons eat meat.", "Komodo dragons are protected animals.", "A Komodo dragon's bite weakens its prey."], ans: 0, exp: "Teks hanya menyebut beberapa pulau di Indonesia timur, bukan seluruh wilayah Indonesia." },
+      { id: 22, stim: "T8", comp: "K2", level: "L2", topic: "Report text (cause-effect)", q: "Why is the Komodo dragon now a protected animal?", opts: ["It is too dangerous for people.", "It is the largest lizard in the world.", "It eats other protected animals.", "Its habitat is becoming smaller."], ans: 3, exp: "Alasannya tertulis di kalimat terakhir: habitatnya semakin menyempit." },
+
+      { id: 23, stim: "T9", comp: "K2", level: "L2", topic: "Degrees of comparison", q: "Which sentence is correct based on the table?", opts: ["The Drama Club has the fewest members.", "The Debate Club meets more often than the Drama Club.", "The Drama Club is the most expensive club.", "The Robotics Club is more expensive than the Debate Club."], ans: 3, exp: "Biaya Robotics Rp25.000 lebih tinggi dari Debate Rp15.000. Pilihan lain salah: anggota paling sedikit adalah Robotics, Debate bertemu 1 kali (Drama 2 kali), dan klub termahal adalah Robotics." },
+      { id: 24, stim: "T9", comp: "K4", level: "L3", topic: "Table problem solving", q: "Budi has Rp40,000 a month for club fees. He wants to join two clubs and attend as many meetings as possible. Which pair should he choose?", opts: ["Drama Club and Debate Club", "Debate Club and Robotics Club", "Drama Club and Robotics Club", "He cannot join any pair of clubs."], ans: 2, exp: "Biaya dan pertemuan: Drama + Debate = Rp25.000 (3 pertemuan), Drama + Robotics = Rp35.000 (5 pertemuan), Debate + Robotics = Rp40.000 (4 pertemuan). Semua masuk anggaran, dan pertemuan terbanyak adalah Drama + Robotics." },
+
+      { id: 25, stim: "T10", comp: "K1", level: "L1", topic: "Announcement (purpose)", q: "What is the purpose of the announcement?", opts: ["To invite students to a birthday party", "To advertise an English course", "To warn students about a school rule", "To inform students about a speech contest"], ans: 3, exp: "Pengumuman memberi informasi tentang lomba pidato bahasa Inggris." },
+      { id: 26, stim: "T10", comp: "K4", level: "L3", topic: "Announcement (deadline)", q: "Dina wants to join the contest. Which preparation is the most appropriate?", opts: ["Submit the form to the principal on 14 March.", "Prepare a 5-minute speech and register on 5 March.", "Write a 2 to 3-minute speech and give the form to Mrs. Lestari before 4 March.", "Come to the school hall at noon on 14 March."], ans: 2, exp: "Syaratnya: naskah 2 sampai 3 menit dan formulir diserahkan kepada Mrs. Lestari sebelum 4 Maret." },
+
+      { id: 27, stim: "T11", comp: "K1", level: "L1", topic: "Condolence card", q: "What is the purpose of the card?", opts: ["To congratulate Mrs. Wulan", "To express sympathy to Mrs. Wulan", "To invite Mrs. Wulan to a funeral", "To thank Mrs. Wulan"], ans: 1, exp: "Kartu belasungkawa digunakan untuk menyatakan simpati atas meninggalnya anggota keluarga." },
+      { id: 28, stim: "T11", comp: "K1", level: "L2", topic: "Condolence expression", q: "Which expression is also suitable for a condolence card?", opts: ["Congratulations on your new baby!", "Get well soon!", "Our thoughts and prayers are with you.", "Have a wonderful holiday!"], ans: 2, exp: "'Our thoughts and prayers are with you' adalah ungkapan duka. Pilihan lain untuk ucapan selamat, sakit, dan liburan." },
+
+      { id: 29, stim: "T12", comp: "K2", level: "L2", topic: "Advertisement", q: "Which statement is true according to the advertisement?", opts: ["The course is open for children of all ages.", "Students can try a class for free on the first Monday of every month.", "The class meets every day of the week.", "Siblings pay the same fee as the first student."], ans: 1, exp: "Iklan menyebut kelas percobaan gratis pada Senin pertama setiap bulan." },
+      { id: 30, stim: "T12", comp: "K4", level: "L3", topic: "Advertisement (calculation)", q: "Andi (13) and his sister Sari (12) want to join the course. Their parents have Rp500,000 a month for the course. Which conclusion is correct?", opts: ["They can enroll both children and still have money left.", "They cannot enroll either child because of the age limit.", "They must wait for the free trial class every month.", "They can enroll only one child."], ans: 3, exp: "Biaya kedua anak Rp300.000 + Rp250.000 = Rp550.000, melebihi Rp500.000. Jadi hanya satu anak yang dapat didaftarkan." },
+
+      { id: 31, stim: "T13", comp: "K2", level: "L1", topic: "Invitation", q: "Which information is NOT given in the invitation?", opts: ["The place of the party", "The time of the party", "The date of the party", "The dress code"], ans: 0, exp: "Undangan memuat tanggal, jam, dan dress code, tetapi tidak menyebut tempat pesta." },
+      { id: 32, stim: "T13", comp: "K3", level: "L2", topic: "Short message", q: "What can we conclude from Tari's message?", opts: ["She has finished her science project.", "She will have dinner at Rafi's house.", "She will come home in the evening.", "She asks her mother to cook dinner."], ans: 2, exp: "'I'll be back at 6 p.m.' berarti Tari pulang sore atau malam hari. Ia sedang mengerjakan proyek, makan malam sudah tersedia, dan ia hanya meminta ibunya memanaskannya." },
+
+      { id: 33, stim: "T14", comp: "K1", level: "L1", topic: "Personal letter", q: "What is Salsa's purpose in writing the letter?", opts: ["To invite Grandma to her party", "To ask for a new dress", "To thank Grandma for a gift", "To complain about a dress"], ans: 2, exp: "Surat dibuka dengan ucapan terima kasih atas gaun batik hadiah ulang tahun." },
+
+      { id: 34, stim: "T15", comp: "K3", level: "L2", topic: "Caution sign", q: "Where would you most likely see Sign 1?", opts: ["At the door of a chemical laboratory", "Beside a freshly mopped floor", "On an electricity tower", "Beside a deep river"], ans: 1, exp: "'Wet floor' dipasang di dekat lantai yang baru dipel atau basah agar orang tidak terpeleset." },
+      { id: 35, stim: "T15", comp: "K1", level: "L1", topic: "Danger sign", q: "What does Sign 2 mean?", opts: ["People must not enter the area because the electricity is dangerous.", "Visitors may enter the area if they are careful.", "The area is closed for cleaning.", "Workers should turn off all the lights."], ans: 0, exp: "'Danger! High voltage. Keep out.' berarti area berbahaya karena listrik bertegangan tinggi dan orang dilarang masuk." },
+
+      { id: 36, stim: "T16", comp: "K4", level: "L3", topic: "Food label", q: "Raka is allergic to milk. Should he eat the biscuits?", opts: ["Yes, because milk is not a main ingredient.", "Yes, because the biscuits are kept in a dry place.", "No, because the biscuits contain milk powder.", "No, because the net weight is only 120 g."], ans: 2, exp: "Label menyebut milk powder dan 'Contains: milk', sehingga tidak aman bagi Raka yang alergi susu." },
+      { id: 37, stim: "T16", comp: "K2", level: "L2", topic: "Medicine label", q: "Which action is consistent with the cough syrup label?", opts: ["Leaving the bottle in a hot car", "Taking the patient to a doctor if the cough continues for ten days", "Using the syrup even if the seal is broken", "Keeping the bottle on a low table in the children's room"], ans: 1, exp: "Label menyarankan konsultasi ke dokter jika batuk lebih dari 7 hari, sehingga batuk 10 hari harus dibawa ke dokter. Pilihan lain bertentangan dengan peringatan label." },
+
+      { id: 38, stim: "T17", comp: "K1", level: "L1", topic: "Simple present tense", q: "Water ____ at 100 °C at sea level.", opts: ["boils", "boil", "is boiling", "boiled"], ans: 0, exp: "Fakta ilmiah memakai simple present. Subjek 'water' bersifat tunggal sehingga verbnya 'boils'." },
+      { id: 39, stim: "T17", comp: "K1", level: "L2", topic: "Present progressive", q: "Rina: Can we talk now?\nTia: Sorry, I can't. I ____ my homework right now, and it is due in an hour.", opts: ["do", "am doing", "did", "have done"], ans: 1, exp: "'Right now' menunjukkan kegiatan yang sedang berlangsung: present progressive 'am doing'." },
+      { id: 40, stim: "T17", comp: "K2", level: "L2", topic: "Modals (must, should)", q: "Notice in a clinic: 'Visitors must wear a mask. Visitors should wash their hands before leaving.' Which statement is correct?", opts: ["Washing hands is compulsory, and wearing a mask is only a suggestion.", "Both are only suggestions.", "Both are compulsory.", "Wearing a mask is compulsory, and washing hands is a suggestion."], ans: 3, exp: "'Must' menyatakan kewajiban (memakai masker), sedangkan 'should' menyatakan saran (mencuci tangan)." },
+      { id: 41, stim: "T17", comp: "K1", level: "L1", topic: "Hopes and dreams", q: "Which sentence expresses a hope or dream for the future?", opts: ["I visited Bali last year.", "I am cooking dinner now.", "I hope I will become an architect one day.", "I usually draw buildings on Sundays."], ans: 2, exp: "'I hope I will become an architect one day' mengungkapkan harapan atau cita-cita masa depan." },
+      { id: 42, stim: "T17", comp: "K1", level: "L2", topic: "Coordinating conjunction", q: "Rani wanted to buy the red shoes, ____ they were too expensive.", opts: ["and", "so", "but", "or"], ans: 2, exp: "Kalimat menyatakan pertentangan (ingin membeli tetapi terlalu mahal), sehingga konjungsi yang tepat adalah 'but'." },
+      { id: 43, stim: "T17", comp: "K3", level: "L3", topic: "Preposition of place", q: "The library is between the bank and the post office. The cafe is opposite the library. Sari stands in front of the cafe and looks at the library. The bank is on her left. Where is the post office?", opts: ["On her left", "Behind her", "On her right", "Next to the cafe"], ans: 2, exp: "Urutan dari kiri ke kanan bagi Sari yang menghadap perpustakaan: bank, library, post office. Jadi kantor pos berada di sebelah kanannya." },
+      { id: 44, stim: "T17", comp: "K1", level: "L1", topic: "Preposition of time", q: "Which sentence is correct?", opts: ["The exam starts at 7.30 a.m. on Monday.", "The exam starts on 7.30 a.m. at Monday.", "The exam starts in Monday at 7.30 a.m.", "The exam starts in 7.30 a.m. on Monday."], ans: 0, exp: "'At' dipakai untuk jam dan 'on' untuk hari: 'at 7.30 a.m. on Monday'." },
+      { id: 45, stim: "T17", comp: "K1", level: "L2", topic: "Expression of intention", q: "Dewi: I'm planning to join the English debate team next semester.\nWhich expression has the closest meaning to 'I'm planning to'?", opts: ["I'm used to", "I'm able to", "I'm afraid to", "I intend to"], ans: 3, exp: "'I'm planning to' bermakna sama dengan 'I intend to' (berniat melakukan sesuatu)." },
+      { id: 46, stim: "T17", comp: "K1", level: "L2", topic: "Checking understanding", q: "Mr. Anto: A good paragraph needs a topic sentence and supporting sentences. ____\nSiti: Yes, Sir. The topic sentence states the main idea.\nWhich expression best completes the dialog?", opts: ["Do you understand so far?", "Can I borrow your pen?", "May I go to the restroom?", "Please open your book on page ten."], ans: 0, exp: "Guru yang ingin memastikan siswa paham akan bertanya 'Do you understand so far?'. Siti kemudian menjawab 'Yes, Sir.'" },
+      { id: 47, stim: "T17", comp: "K1", level: "L1", topic: "Giving opinion", q: "Mia: What do you think about wearing school uniforms?\nBen: ____ It makes all students look equal.\nWhich expression best completes the dialog?", opts: ["I'm afraid I can't help.", "Congratulations!", "I'm sorry to hear that.", "In my opinion, it is a good idea."], ans: 3, exp: "'In my opinion, it is a good idea' adalah ungkapan memberi pendapat, dan sesuai dengan alasan Ben." },
+      { id: 48, stim: "T17", comp: "K3", level: "L2", topic: "Agreement & disagreement", q: "Citra: Phones should be allowed in class because they help us search for information.\nEko: I see your point, but they can also distract students.\nHow does Eko respond to Citra's opinion?", opts: ["He disagrees politely.", "He agrees completely.", "He asks for permission.", "He congratulates Citra."], ans: 0, exp: "'I see your point, but...' menunjukkan ketidaksetujuan yang disampaikan secara sopan." },
+      { id: 49, stim: "T17", comp: "K1", level: "L1", topic: "Congratulating & complimenting", q: "Rani won first prize in a drawing competition. Which expression is the most suitable to say to her?", opts: ["I'm sorry, you lost.", "Never mind.", "Be careful.", "Congratulations! Your drawing was amazing."], ans: 3, exp: "Untuk orang yang memenangkan lomba, ungkapan tepat adalah ucapan selamat disertai pujian." },
+      { id: 50, stim: "T17", comp: "K1", level: "L1", topic: "Certainty & uncertainty", q: "Teacher: Will it rain this afternoon?\nStudent: ____ The sky is dark, but the weather forecast says it will be sunny.\nWhich expression best completes the dialog?", opts: ["I'm not sure.", "I'm absolutely certain.", "There's no doubt.", "Of course."], ans: 0, exp: "Langit gelap tetapi prakiraan cuaca cerah, sehingga siswa tidak yakin. Ungkapan yang cocok adalah 'I'm not sure.'" }
+    ];
+
+    // =========================================================================
+    // 2. BILINGUAL DICTIONARY (BAHASA INDONESIA & ENGLISH)
+    // =========================================================================
+    const I18N = {
+      id: {
+        loginSubtitle: "Paket Latihan Asesmen Model TKA • Bahasa Inggris Kelas IX (Fase D)",
+        usernameLabel: "Username Akses",
+        passwordLabel: "Kata Sandi Keamanan",
+        loginBtn: "Masuk ke Portal Asesmen",
+        stepBadge: "REGISTRASI PESERTA UJIAN",
+        identityTitle: "Menu Identitas Murid",
+        identityNoticeTitle: "Sistem Pengacakan & Proteksi Otomatis:",
+        identityNoticeDesc: "Setiap perubahan identitas murid akan secara otomatis me-reset progres jawaban dan mengacak urutan stimulus/soal tanpa mengubah substansi materi. Waktu pengerjaan dibatasi 80 menit secara real-time. Membuka tab baru, berpindah jendela, atau mengunci layar perangkat akan mengunci aplikasi secara otomatis.",
+        fieldNama: "Nama Lengkap Murid *",
+        fieldKelas: "Kelas *",
+        fieldPresensi: "Nomor Presensi *",
+        fieldMadrasah: "Asal Madrasah / Sekolah *",
+        specQuestions: "Jumlah Soal",
+        specDuration: "Batas Waktu",
+        specCert: "Syarat Sertifikat",
+        btnBackLogin: "Kembali",
+        btnStartExam: "Mulai Asesmen Sekarang",
+        lockoutTitle: "APLIKASI TERKUNCI OTOMATIS!",
+        proctorUnlockTitle: "Otorisasi Pengawas / Admin untuk Membuka Kunci:",
+        cardStudentBadge: "IDENTITAS PESERTA",
+        lblClass: "Kelas:",
+        lblNo: "Presensi:",
+        lblSchool: "Madrasah:",
+        progressTitle: "Progres Pengerjaan",
+        statDone: "Dijawab",
+        statFlag: "Ragu",
+        statLeft: "Kosong",
+        menuControl: "Menu Kontrol Sesi",
+        menuIdentity: "Menu Identitas Murid",
+        menuLang: "Bahasa Antarmuka",
+        menuTheme: "Pencahayaan Layar",
+        menuLockout: "Lock Out / Kunci Sesi",
+        btnFinishExam: "Selesai & Kumpulkan",
+        headerSubject: "Bahasa Inggris Kelas IX (Fase D) • K1–K4",
+        timerLabel: "Sisa Waktu (80 Menit)",
+        qWord: "SOAL",
+        btnFlag: "Tandai Ragu-Ragu",
+        btnFlaggedActive: "Ditandai Ragu-Ragu",
+        btnPrev: "Sebelumnya",
+        btnNext: "Soal Berikutnya",
+        navGridTitle: "Navigasi Soal",
+        legAnswered: "Sudah Dijawab",
+        legFlagged: "Ragu-Ragu",
+        legCurrent: "Aktif",
+        legEmpty: "Belum Dijawab",
+        navTip: "Pastikan seluruh 50 soal telah terjawab sebelum waktu 80 menit habis.",
+        resBadge: "LAPORAN HASIL ASESMEN TKA",
+        finalScoreLbl: "NILAI AKHIR",
+        certHeading: "Sertifikat Kelulusan Digital (Skor ≥ 80)",
+        certSub: "Selamat! Anda memenuhi standar ketuntasan minimal 80 untuk memperoleh sertifikat resmi."
+      },
+      en: {
+        loginSubtitle: "TKA Model Assessment Practice • Grade IX English (Phase D)",
+        usernameLabel: "Access Username",
+        passwordLabel: "Security Password",
+        loginBtn: "Enter Assessment Portal",
+        stepBadge: "CANDIDATE REGISTRATION",
+        identityTitle: "Student Identity Menu",
+        identityNoticeTitle: "Auto-Randomization & Proctoring Protection:",
+        identityNoticeDesc: "Any modification to student identity automatically resets previous answers and shuffles the order of stimulus/questions without altering the core content. Real-time duration is strictly limited to 80 minutes. Opening a new tab, switching windows, or locking the screen will automatically lock out the application.",
+        fieldNama: "Student Full Name *",
+        fieldKelas: "Class *",
+        fieldPresensi: "Attendance Number *",
+        fieldMadrasah: "Madrasah / School Origin *",
+        specQuestions: "Total Items",
+        specDuration: "Time Limit",
+        specCert: "Certificate Rule",
+        btnBackLogin: "Back",
+        btnStartExam: "Start Assessment Now",
+        lockoutTitle: "APPLICATION AUTOMATICALLY LOCKED!",
+        proctorUnlockTitle: "Proctor / Admin Authorization to Unlock:",
+        cardStudentBadge: "CANDIDATE IDENTITY",
+        lblClass: "Class:",
+        lblNo: "No:",
+        lblSchool: "School:",
+        progressTitle: "Completion Progress",
+        statDone: "Answered",
+        statFlag: "Flagged",
+        statLeft: "Empty",
+        menuControl: "Session Control Menu",
+        menuIdentity: "Student Identity Menu",
+        menuLang: "Interface Language",
+        menuTheme: "Screen Lighting",
+        menuLockout: "Lock Out Session",
+        btnFinishExam: "Finish & Submit",
+        headerSubject: "Grade IX English (Phase D) • K1–K4",
+        timerLabel: "Remaining Time (80 Mins)",
+        qWord: "ITEM",
+        btnFlag: "Flag for Review",
+        btnFlaggedActive: "Flagged for Review",
+        btnPrev: "Previous",
+        btnNext: "Next Question",
+        navGridTitle: "Question Navigator",
+        legAnswered: "Answered",
+        legFlagged: "Flagged",
+        legCurrent: "Current",
+        legEmpty: "Unanswered",
+        navTip: "Ensure all 50 questions are answered before the 80-minute timer expires.",
+        resBadge: "TKA ASSESSMENT DIAGNOSTIC REPORT",
+        finalScoreLbl: "FINAL SCORE",
+        certHeading: "Digital Achievement Certificate (Score ≥ 80)",
+        certSub: "Congratulations! You achieved the minimum passing score of 80 to unlock your official certificate."
+      }
+    };
+
+    // =========================================================================
+    // 3. APPLICATION STATE
+    // =========================================================================
+    const ADMIN_USER = "admin";
+    const ADMIN_PASS = "bismillah";
+    const EXAM_DURATION_SECONDS = 80 * 60; // Strictly 80 minutes = 4800 seconds
+
+    let state = {
+      lang: "id",
+      theme: "dark",
+      isAuthenticated: false,
+      examActive: false,
+      examSubmitted: false,
+      isLockedOut: false,
+      identitySignature: "",
+      student: {
+        name: "",
+        className: "",
+        number: "",
+        school: ""
+      },
+      questions: [],       // Shuffled list of 50 questions
+      currentIndex: 0,     // 0..49
+      answers: {},         // map question.id -> selected shuffled option index (0..3)
+      flagged: {},         // map question.id -> boolean
+      secondsLeft: EXAM_DURATION_SECONDS,
+      timerInterval: null,
+      startTimeStamp: null
+    };
+
+    // =========================================================================
+    // 4. UTILITY FUNCTIONS (TOAST, MODAL, LANGUAGE, THEME)
+    // =========================================================================
+    function showToast(message, type = "info") {
+      const container = document.getElementById("toastContainer");
+      const toast = document.createElement("div");
+      const colors = {
+        info: "bg-emerald-950/95 border-emerald-500 text-emerald-100",
+        warn: "bg-amber-950/95 border-amber-500 text-amber-100",
+        danger: "bg-rose-950/95 border-rose-500 text-rose-100"
+      };
+      toast.className = `pointer-events-auto px-4 py-3 rounded-2xl border shadow-xl text-xs font-semibold flex items-center gap-2.5 transform transition-all duration-300 ${colors[type] || colors.info}`;
+      toast.innerHTML = `<span class="w-2 h-2 rounded-full bg-amber-400 shrink-0"></span><span>${message}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = "0";
+        toast.style.transform = "translateY(-10px)";
+        setTimeout(() => toast.remove(), 300);
+      }, 3500);
+    }
+
+    function openConfirmModal(title, message, onConfirm) {
+      const modal = document.getElementById("customModal");
+      document.getElementById("modalTitle").textContent = title;
+      document.getElementById("modalMessage").textContent = message;
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+
+      const cancelBtn = document.getElementById("modalCancelBtn");
+      const confirmBtn = document.getElementById("modalConfirmBtn");
+
+      const close = () => {
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+      };
+
+      cancelBtn.onclick = close;
+      confirmBtn.onclick = () => {
+        close();
+        if (onConfirm) onConfirm();
+      };
+    }
+
+    function toggleLanguage() {
+      state.lang = state.lang === "id" ? "en" : "id";
+      applyLanguage();
+      showToast(state.lang === "id" ? "Bahasa diubah ke Bahasa Indonesia" : "Language switched to English", "info");
+    }
+
+    function applyLanguage() {
+      const dict = I18N[state.lang];
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (dict[key]) el.textContent = dict[key];
+      });
+      const sideLangBadge = document.getElementById("sideLangBadge");
+      if (sideLangBadge) sideLangBadge.textContent = state.lang === "id" ? "INDONESIA" : "ENGLISH";
+      if (state.questions.length > 0 && state.examActive) {
+        updateFlagButtonUI();
+      }
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      if (html.classList.contains("dark")) {
+        html.classList.remove("dark");
+        state.theme = "light";
+      } else {
+        html.classList.add("dark");
+        state.theme = "dark";
+      }
+      const badge = document.getElementById("sideThemeBadge");
+      if (badge) {
+        badge.textContent = state.theme === "dark"
+          ? (state.lang === "id" ? "GELAP" : "DARK")
+          : (state.lang === "id" ? "TERANG" : "LIGHT");
+      }
+    }
+
+    function togglePassVisibility(inputId) {
+      const inp = document.getElementById(inputId);
+      inp.type = inp.type === "password" ? "text" : "password";
+    }
+
+    function toggleMobileSidebar() {
+      const sb = document.getElementById("sidebarDashboard");
+      sb.classList.toggle("-translate-x-full");
+    }
+
+    function toggleMobileNavDrawer() {
+      const nav = document.getElementById("questionNavDrawer");
+      nav.classList.toggle("translate-x-full");
+    }
+
+    // =========================================================================
+    // 5. AUTHENTICATION & STUDENT IDENTITY + AUTO-RANDOMIZATION & AUTO-RESET
+    // =========================================================================
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const user = document.getElementById("loginUsername").value.trim();
+      const pass = document.getElementById("loginPassword").value.trim();
+      const errEl = document.getElementById("loginError");
+
+      if (user === ADMIN_USER && pass === ADMIN_PASS) {
+        errEl.classList.add("hidden");
+        state.isAuthenticated = true;
+        document.getElementById("loginView").classList.add("hidden");
+        document.getElementById("identityView").classList.remove("hidden");
+        showToast("Otentikasi berhasil. Silakan isi Identitas Murid.", "info");
+      } else {
+        errEl.textContent = state.lang === "id"
+          ? "Akses ditolak! Username atau kata sandi tidak valid."
+          : "Access denied! Invalid username or password.";
+        errEl.classList.remove("hidden");
+      }
+    });
+
+    function logoutToLogin() {
+      stopTimer();
+      state.examActive = false;
+      document.body.classList.remove("exam-active");
+      document.getElementById("identityView").classList.add("hidden");
+      document.getElementById("examWorkspace").classList.add("hidden");
+      document.getElementById("loginView").classList.remove("hidden");
+      document.getElementById("loginUsername").value = "";
+      document.getElementById("loginPassword").value = "";
+    }
+
+    function openIdentityMenu() {
+      // Pause exam temporarily while editing identity; if identity changes, auto-reset & re-shuffle occurs!
+      state.examActive = false;
+      document.body.classList.remove("exam-active");
+      document.getElementById("examWorkspace").classList.add("hidden");
+      document.getElementById("identityView").classList.remove("hidden");
+
+      // Pre-fill existing values so student/proctor can see what changes
+      document.getElementById("studentName").value = state.student.name;
+      document.getElementById("studentClass").value = state.student.className;
+      document.getElementById("studentNumber").value = state.student.number;
+      document.getElementById("studentSchool").value = state.student.school;
+    }
+
+    // Fisher-Yates Shuffle helper
+    function shuffleArray(arr) {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    // Shuffle stimulus blocks while keeping questions grouped with their exact stimulus,
+    // and shuffle options inside each question while tracking correct answer!
+    function buildRandomizedExamPackage() {
+      // Group questions by stimulus ID (T1..T17)
+      const groupsMap = {};
+      RAW_QUESTIONS.forEach(q => {
+        if (!groupsMap[q.stim]) groupsMap[q.stim] = [];
+        groupsMap[q.stim].push(q);
+      });
+
+      // Shuffle the order of stimulus blocks (keeping T17 items shuffled individually)
+      const stimKeys = Object.keys(groupsMap).filter(k => k !== "T17");
+      const shuffledStimKeys = shuffleArray(stimKeys);
+
+      let orderedRaw = [];
+      shuffledStimKeys.forEach(k => {
+        // Keep questions within a reading passage in logical sequence or lightly shuffled
+        orderedRaw = orderedRaw.concat(groupsMap[k]);
+      });
+
+      // Shuffle standalone questions (T17: Q38-Q50)
+      if (groupsMap["T17"]) {
+        orderedRaw = orderedRaw.concat(shuffleArray(groupsMap["T17"]));
+      }
+
+      // Shuffle options A-D for each question safely
+      return orderedRaw.map((item, idx) => {
+        const indexedOpts = item.opts.map((text, optIdx) => ({
+          text,
+          isCorrect: optIdx === item.ans
+        }));
+        const shuffledOpts = shuffleArray(indexedOpts);
+        const newAnsIndex = shuffledOpts.findIndex(o => o.isCorrect);
+
+        return {
+          ...item,
+          displayNum: idx + 1,
+          shuffledOpts: shuffledOpts.map(o => o.text),
+          shuffledAns: newAnsIndex
+        };
+      });
+    }
+
+    document.getElementById("identityForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const name = document.getElementById("studentName").value.trim();
+      const className = document.getElementById("studentClass").value.trim();
+      const number = document.getElementById("studentNumber").value.trim();
+      const school = document.getElementById("studentSchool").value.trim();
+
+      if (!name || !className || !number || !school) return;
+
+      const newSignature = `${name.toLowerCase()}|${className.toLowerCase()}|${number.toLowerCase()}|${school.toLowerCase()}`;
+      const identityChanged = newSignature !== state.identitySignature;
+
+      state.student = { name, className, number, school };
+
+      // Update Sidebar & Mobile Badges
+      document.getElementById("sideStudentName").textContent = name;
+      document.getElementById("sideStudentClass").textContent = className;
+      document.getElementById("sideStudentNumber").textContent = number;
+      document.getElementById("sideStudentSchool").textContent = school;
+      document.getElementById("mobileStudentBadge").textContent = `${name} (${className})`;
+
+      if (identityChanged || state.questions.length === 0 || state.examSubmitted) {
+        // AUTOMATICALLY RESET & SHUFFLE QUESTIONS WITHOUT ALTERING CORE MATERIAL
+        state.identitySignature = newSignature;
+        state.answers = {};
+        state.flagged = {};
+        state.currentIndex = 0;
+        state.examSubmitted = false;
+        state.isLockedOut = false;
+        state.secondsLeft = EXAM_DURATION_SECONDS;
+        state.startTimeStamp = Date.now();
+        state.questions = buildRandomizedExamPackage();
+
+        showToast(
+          state.lang === "id"
+            ? "Identitas diperbarui! Soal diacak otomatis & sesi di-reset (80 Menit)."
+            : "Identity updated! Questions auto-shuffled & session reset (80 Mins).",
+          "warn"
+        );
+      }
+
+      // Switch to Exam Workspace
+      document.getElementById("identityView").classList.add("hidden");
+      document.getElementById("examWorkspace").classList.remove("hidden");
+      document.getElementById("examStage").classList.remove("hidden");
+      document.getElementById("resultsStage").classList.add("hidden");
+      document.getElementById("sideSubmitBtn").classList.remove("hidden");
+
+      state.examActive = true;
+      document.body.classList.add("exam-active");
+
+      renderQuestionNavGrid();
+      renderCurrentQuestion();
+      updateProgressStats();
+      startTimer();
+    });
+
+    // =========================================================================
+    // 6. REAL-TIME 80-MINUTE TIMER & AUTO-STOP
+    // =========================================================================
+    function formatTimeMMSS(totalSec) {
+      const mins = Math.floor(totalSec / 60);
+      const secs = totalSec % 60;
+      return `${String(mins).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+    }
+
+    function startTimer() {
+      stopTimer();
+      updateTimerDisplays();
+      state.timerInterval = setInterval(() => {
+        if (!state.examActive || state.isLockedOut || state.examSubmitted) return;
+
+        state.secondsLeft--;
+        updateTimerDisplays();
+
+        if (state.secondsLeft === 300) {
+          showToast(state.lang === "id" ? "Peringatan: Sisa waktu 5 menit lagi!" : "Warning: 5 minutes remaining!", "warn");
+        }
+
+        if (state.secondsLeft <= 0) {
+          state.secondsLeft = 0;
+          updateTimerDisplays();
+          stopTimer();
+          showToast(
+            state.lang === "id"
+              ? "WAKTU HABIS (80 Menit)! Aplikasi berhenti otomatis & menghitung nilai."
+              : "TIME EXPIRED (80 Mins)! Exam stopped automatically & grading results.",
+            "danger"
+          );
+          finalizeAndGradeExam(true);
+        }
+      }, 1000);
+    }
+
+    function stopTimer() {
+      if (state.timerInterval) {
+        clearInterval(state.timerInterval);
+        state.timerInterval = null;
+      }
+    }
+
+    function updateTimerDisplays() {
+      const formatted = formatTimeMMSS(state.secondsLeft);
+      const desk = document.getElementById("desktopTimerDisplay");
+      const mob = document.getElementById("mobileTimerDisplay");
+      if (desk) {
+        desk.textContent = formatted;
+        if (state.secondsLeft <= 300) {
+          desk.classList.add("text-rose-500", "animate-pulse");
+        } else {
+          desk.classList.remove("text-rose-500", "animate-pulse");
+        }
+      }
+      if (mob) mob.textContent = formatted;
+    }
+
+    // =========================================================================
+    // 7. STRICT ANTI-CHEAT: NO COPY/PASTE, TAB SWITCH & SCREEN LOCK LOCKOUT
+    // =========================================================================
+    // Block Copy, Cut, Paste, Context Menu, Selection
+    ["copy", "cut", "paste", "contextmenu", "selectstart", "dragstart"].forEach(evtName => {
+      document.addEventListener(evtName, function (e) {
+        if (state.examActive && !state.examSubmitted) {
+          e.preventDefault();
+          if (evtName === "copy" || evtName === "paste" || evtName === "cut") {
+            showToast(
+              state.lang === "id"
+                ? "Keamanan Aktif: Fitur Copy / Paste dikunci selama ujian!"
+                : "Security Active: Copy / Paste is disabled during the exam!",
+              "danger"
+            );
+          }
+        }
+      });
+    });
+
+    // Block DevTools & Clipboard Keyboard Shortcuts
+    document.addEventListener("keydown", function (e) {
+      if (!state.examActive || state.examSubmitted) return;
+
+      const key = e.key.toLowerCase();
+      if (
+        (e.ctrlKey && ["c", "v", "x", "u", "s", "p", "a"].includes(key)) ||
+        (e.ctrlKey && e.shiftKey && ["i", "j", "c"].includes(key)) ||
+        e.key === "F12" ||
+        e.key === "PrintScreen"
+      ) {
+        e.preventDefault();
+        showToast("Pintasan keyboard diblokir oleh sistem pengawas!", "danger");
+      }
+    });
+
+    // Trigger Proctoring Lockout on Tab Switch, Window Blur, or Device Screen Lock
+    function triggerSecurityLockout(reason) {
+      if (!state.examActive || state.examSubmitted || state.isLockedOut) return;
+
+      state.isLockedOut = true;
+      state.examActive = false;
+      stopTimer();
+
+      document.getElementById("lockStudentName").textContent = state.student.name || "-";
+      document.getElementById("lockStudentClass").textContent = `${state.student.className} (No. ${state.student.number})`;
+      document.getElementById("lockTimestamp").textContent = new Date().toLocaleTimeString("id-ID");
+      if (reason) {
+        document.getElementById("lockoutReasonText").textContent = reason;
+      }
+
+      document.getElementById("unlockUser").value = "";
+      document.getElementById("unlockPass").value = "";
+      document.getElementById("unlockError").classList.add("hidden");
+      document.getElementById("lockoutView").classList.remove("hidden");
+    }
+
+    // Detect browser tab switch or device screen lock
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden && state.examActive && !state.examSubmitted) {
+        triggerSecurityLockout(
+          "Pelanggaran Terdeteksi: Anda meninggalkan tab ujian, membuka tab/search engine lain, atau mengunci layar perangkat. Aplikasi dikunci otomatis!"
+        );
+      }
+    });
+
+    // Detect switching to another window / app
+    window.addEventListener("blur", function () {
+      if (state.examActive && !state.examSubmitted) {
+        triggerSecurityLockout(
+          "Pelanggaran Terdeteksi: Fokus jendela browser berpindah ke aplikasi atau jendela lain. Aplikasi dikunci otomatis!"
+        );
+      }
+    });
+
+    // Manual Lock Out menu button in Sidebar
+    function triggerManualLockout() {
+      triggerSecurityLockout(
+        "Sesi dikunci secara manual melalui Menu Lock Out. Hubungi pengawas untuk otorisasi membuka kunci."
+      );
+    }
+
+    // Proctor / Admin Unlock Handler (Hidden Credentials: admin / bismillah)
+    function attemptProctorUnlock(resetToIdentity) {
+      const u = document.getElementById("unlockUser").value.trim();
+      const p = document.getElementById("unlockPass").value.trim();
+      const err = document.getElementById("unlockError");
+
+      if (u === ADMIN_USER && p === ADMIN_PASS) {
+        err.classList.add("hidden");
+        state.isLockedOut = false;
+        document.getElementById("lockoutView").classList.add("hidden");
+
+        if (resetToIdentity) {
+          state.identitySignature = ""; // Forces full reset & reshuffle
+          openIdentityMenu();
+          showToast("Kunci dibuka. Silakan masukkan identitas murid baru.", "info");
+        } else {
+          state.examActive = true;
+          startTimer();
+          showToast("Otorisasi pengawas berhasil. Sesi ujian dilanjutkan.", "info");
+        }
+      } else {
+        err.textContent = "Kredensial pengawas salah! Kunci tetap aktif.";
+        err.classList.remove("hidden");
+      }
+    }
+
+    // =========================================================================
+    // 8. QUESTION RENDERING, NAVIGATION & INTERACTION
+    // =========================================================================
+    function renderCurrentQuestion() {
+      const q = state.questions[state.currentIndex];
+      if (!q) return;
+
+      document.getElementById("currentQNumberBadge").textContent = state.currentIndex + 1;
+      document.getElementById("qCompBadge").textContent = q.comp;
+      document.getElementById("qLevelBadge").textContent = q.level;
+      document.getElementById("qTopicBadge").textContent = q.topic;
+
+      // Render Stimulus
+      const stim = STIMULUS_DATA[q.stim];
+      document.getElementById("stimulusTitle").textContent = stim ? stim.title : "STIMULUS";
+      document.getElementById("stimulusBody").innerHTML = stim ? stim.html : "";
+
+      // Render Question Stem (preserve line breaks)
+      document.getElementById("questionStem").innerHTML = q.q.replace(/\n/g, "<br/>");
+
+      // Render 4 Options
+      const optsContainer = document.getElementById("optionsContainer");
+      optsContainer.innerHTML = "";
+      const letters = ["A", "B", "C", "D"];
+      const selectedOpt = state.answers[q.id];
+
+      q.shuffledOpts.forEach((optText, idx) => {
+        const isSelected = selectedOpt === idx;
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.onclick = () => selectOption(q.id, idx);
+        btn.className = `w-full text-left p-4 rounded-2xl border transition-all flex items-center gap-3.5 group ${
+          isSelected
+            ? "bg-emerald-500/20 border-amber-400 shadow-[0_0_20px_rgba(245,158,11,0.2)]"
+            : "bg-slate-50 dark:bg-emeraldDeep/70 border-slate-200 dark:border-emerald-800/80 hover:border-emerald-400"
+        }`;
+
+        btn.innerHTML = `
+          <span class="w-9 h-9 rounded-xl flex items-center justify-center font-mono text-sm font-extrabold shrink-0 transition ${
+            isSelected
+              ? "gold-btn"
+              : "bg-slate-200 dark:bg-emeraldCard text-slate-700 dark:text-emerald-300 group-hover:bg-emerald-500 group-hover:text-white"
+          }">${letters[idx]}</span>
+          <span class="text-sm sm:text-base font-medium ${
+            isSelected ? "text-slate-900 dark:text-white font-bold" : "text-slate-700 dark:text-slate-200"
+          }">${optText}</span>
+        `;
+        optsContainer.appendChild(btn);
+      });
+
+      // Prev / Next button states
+      document.getElementById("prevQBtn").disabled = state.currentIndex === 0;
+      const nextBtn = document.getElementById("nextQBtn");
+      if (state.currentIndex === state.questions.length - 1) {
+        nextBtn.querySelector("span").textContent = state.lang === "id" ? "Selesai & Kumpulkan" : "Finish & Submit";
+        nextBtn.onclick = confirmSubmitExam;
+      } else {
+        nextBtn.querySelector("span").textContent = state.lang === "id" ? "Soal Berikutnya" : "Next Question";
+        nextBtn.onclick = () => navigateQuestion(1);
+      }
+
+      updateFlagButtonUI();
+      renderQuestionNavGrid();
+    }
+
+    function selectOption(questionId, optionIndex) {
+      if (!state.examActive || state.examSubmitted) return;
+      state.answers[questionId] = optionIndex;
+      renderCurrentQuestion();
+      updateProgressStats();
+    }
+
+    function toggleFlagCurrent() {
+      const q = state.questions[state.currentIndex];
+      if (!q) return;
+      state.flagged[q.id] = !state.flagged[q.id];
+      updateFlagButtonUI();
+      updateProgressStats();
+      renderQuestionNavGrid();
+    }
+
+    function updateFlagButtonUI() {
+      const q = state.questions[state.currentIndex];
+      const isFlagged = !!state.flagged[q.id];
+      const btn = document.getElementById("flagBtn");
+      const txt = document.getElementById("flagBtnText");
+      if (isFlagged) {
+        btn.className = "px-3.5 py-2 rounded-xl text-xs font-bold bg-amber-400 text-slate-950 shadow transition flex items-center gap-2";
+        txt.textContent = I18N[state.lang].btnFlaggedActive;
+      } else {
+        btn.className = "px-3.5 py-2 rounded-xl text-xs font-bold border border-amber-500/40 bg-amber-500/10 text-amber-700 dark:text-amber-300 hover:bg-amber-500/25 transition flex items-center gap-2";
+        txt.textContent = I18N[state.lang].btnFlag;
+      }
+    }
+
+    function navigateQuestion(delta) {
+      const nextIdx = state.currentIndex + delta;
+      if (nextIdx >= 0 && nextIdx < state.questions.length) {
+        state.currentIndex = nextIdx;
+        renderCurrentQuestion();
+      }
+    }
+
+    function jumpToQuestion(index) {
+      state.currentIndex = index;
+      renderCurrentQuestion();
+      // Close mobile drawer if open
+      document.getElementById("questionNavDrawer").classList.add("translate-x-full");
+    }
+
+    function renderQuestionNavGrid() {
+      const grid = document.getElementById("questionNumberGrid");
+      grid.innerHTML = "";
+
+      state.questions.forEach((q, idx) => {
+        const isCurrent = idx === state.currentIndex;
+        const isAnswered = state.answers[q.id] !== undefined;
+        const isFlagged = !!state.flagged[q.id];
+
+        let styleClass = "bg-slate-200 dark:bg-emeraldDeep text-slate-700 dark:text-slate-300 border-slate-300 dark:border-emerald-800";
+        if (isFlagged) {
+          styleClass = "bg-amber-400 text-slate-950 border-amber-500 font-extrabold";
+        } else if (isAnswered) {
+          styleClass = "bg-emerald-600 text-white border-emerald-400 font-bold";
+        }
+
+        if (isCurrent) {
+          styleClass += " ring-2 ring-amber-400 ring-offset-2 ring-offset-white dark:ring-offset-emeraldCard scale-105";
+        }
+
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.onclick = () => jumpToQuestion(idx);
+        btn.className = `h-10 rounded-xl border font-mono text-xs transition-all flex items-center justify-center ${styleClass}`;
+        btn.textContent = idx + 1;
+        grid.appendChild(btn);
+      });
+    }
+
+    function updateProgressStats() {
+      const total = state.questions.length || 50;
+      const answeredCount = Object.keys(state.answers).length;
+      const flaggedCount = Object.values(state.flagged).filter(Boolean).length;
+      const remainingCount = total - answeredCount;
+      const pct = Math.round((answeredCount / total) * 100);
+
+      document.getElementById("progressPercentText").textContent = `${pct}%`;
+      document.getElementById("progressBarFill").style.width = `${pct}%`;
+      document.getElementById("statAnswered").textContent = answeredCount;
+      document.getElementById("statFlagged").textContent = flaggedCount;
+      document.getElementById("statRemaining").textContent = remainingCount;
+    }
+
+    // =========================================================================
+    // 9. GRADING, DIAGNOSTICS & CERTIFICATE GENERATOR (MIN SCORE 80)
+    // =========================================================================
+    function confirmSubmitExam() {
+      const answeredCount = Object.keys(state.answers).length;
+      const unanswered = 50 - answeredCount;
+      const msg = unanswered > 0
+        ? `Anda baru menjawab ${answeredCount} dari 50 soal (${unanswered} soal masih kosong). Apakah Anda yakin ingin mengakhiri dan mengumpulkan ujian sekarang?`
+        : "Seluruh 50 soal telah terjawab. Apakah Anda yakin ingin mengumpulkan jawaban dan melihat hasil nilai serta sertifikat?";
+
+      openConfirmModal("Konfirmasi Pengumpulan Asesmen", msg, () => {
+        finalizeAndGradeExam(false);
+      });
+    }
+
+    function finalizeAndGradeExam(autoExpired = false) {
+      stopTimer();
+      state.examActive = false;
+      state.examSubmitted = true;
+      document.body.classList.remove("exam-active");
+
+      // Calculate score: (correctCount / 50) * 100
+      let correctCount = 0;
+      const compStats = {
+        K1: { name: "K1 • Pemahaman Konsep", correct: 0, total: 0 },
+        K2: { name: "K2 • Analisis Informasi", correct: 0, total: 0 },
+        K3: { name: "K3 • Penalaran", correct: 0, total: 0 },
+        K4: { name: "K4 • Pemecahan Masalah", correct: 0, total: 0 }
+      };
+      const levelStats = {
+        L1: { name: "L1 • Pemahaman (Mudah)", correct: 0, total: 0 },
+        L2: { name: "L2 • Penerapan & Analisis (Sedang)", correct: 0, total: 0 },
+        L3: { name: "L3 • Penalaran & Pemecahan Masalah (Sulit)", correct: 0, total: 0 }
+      };
+
+      state.questions.forEach(q => {
+        const userAns = state.answers[q.id];
+        const isCorrect = userAns !== undefined && userAns === q.shuffledAns;
+        if (isCorrect) correctCount++;
+
+        if (compStats[q.comp]) {
+          compStats[q.comp].total++;
+          if (isCorrect) compStats[q.comp].correct++;
+        }
+        if (levelStats[q.level]) {
+          levelStats[q.level].total++;
+          if (isCorrect) levelStats[q.level].correct++;
+        }
+      });
+
+      const finalScore = Math.round((correctCount / 50) * 100);
+      const elapsedSec = EXAM_DURATION_SECONDS - state.secondsLeft;
+      const elapsedMins = Math.floor(elapsedSec / 60);
+      const elapsedRemSec = elapsedSec % 60;
+
+      // Determine Category & Predicate
+      let categoryText = "PERLU BIMBINGAN";
+      let badgeStyle = "bg-rose-500/20 text-rose-500 border border-rose-500/40";
+      if (finalScore >= 85) {
+        categoryText = "SANGAT BAIK (EXCELLENT)";
+        badgeStyle = "bg-emerald-500/20 text-emerald-500 border border-emerald-500/40";
+      } else if (finalScore >= 70) {
+        categoryText = "BAIK (GOOD)";
+        badgeStyle = "bg-amber-500/20 text-amber-500 border border-amber-500/40";
+      } else if (finalScore >= 55) {
+        categoryText = "CUKUP (FAIR)";
+        badgeStyle = "bg-sky-500/20 text-sky-400 border border-sky-500/40";
+      }
+
+      // Switch View to Results Stage
+      document.getElementById("examStage").classList.add("hidden");
+      document.getElementById("resultsStage").classList.remove("hidden");
+      document.getElementById("sideSubmitBtn").classList.add("hidden");
+
+      // Populate Hero Banner
+      document.getElementById("resStudentName").textContent = state.student.name;
+      document.getElementById("resStudentMeta").textContent = `Kelas ${state.student.className} • No. Presensi ${state.student.number} • ${state.student.school}`;
+      document.getElementById("resFinalScore").textContent = finalScore;
+      document.getElementById("resCorrectCount").textContent = `${correctCount} / 50 Benar`;
+      const catBadge = document.getElementById("resCategoryBadge");
+      catBadge.textContent = categoryText;
+      catBadge.className = `px-3.5 py-1.5 rounded-xl text-xs font-extrabold uppercase tracking-wider ${badgeStyle}`;
+      document.getElementById("resTimeTakenBadge").textContent = `Durasi: ${elapsedMins}m ${elapsedRemSec}d`;
+
+      // Certificate Unlock Logic (Minimum Score = 80)
+      const certUnlocked = document.getElementById("certificateUnlockedSection");
+      const certLocked = document.getElementById("certificateLockedSection");
+
+      if (finalScore >= 80) {
+        certUnlocked.classList.remove("hidden");
+        certLocked.classList.add("hidden");
+
+        const dateStr = new Date().toLocaleDateString("id-ID", {
+          day: "numeric",
+          month: "long",
+          year: "numeric"
+        });
+        const serialId = `TKA-${new Date().getFullYear()}-${Math.floor(100000 + Math.random() * 900000)}`;
+
+        document.getElementById("certSerialId").textContent = serialId;
+        document.getElementById("certStudentName").textContent = state.student.name;
+        document.getElementById("certStudentDetails").textContent =
+          `Kelas: ${state.student.className} • Nomor Presensi: ${state.student.number} • Asal Madrasah: ${state.student.school}`;
+        document.getElementById("certPredicate").textContent = finalScore >= 85 ? "SANGAT BAIK (EXCELLENT)" : "BAIK (GOOD)";
+        document.getElementById("certScoreValue").textContent = `${finalScore} / 100`;
+        document.getElementById("certDateText").textContent = dateStr;
+      } else {
+        certUnlocked.classList.add("hidden");
+        certLocked.classList.remove("hidden");
+      }
+
+      // Render Competency Breakdown (K1 - K4)
+      const compList = document.getElementById("competencyBreakdownList");
+      compList.innerHTML = "";
+      Object.values(compStats).forEach(item => {
+        const pct = Math.round((item.correct / item.total) * 100);
+        compList.innerHTML += `
+          <div class="space-y-1">
+            <div class="flex justify-between text-xs font-semibold">
+              <span class="text-slate-700 dark:text-slate-200">${item.name}</span>
+              <span class="font-mono text-emerald-600 dark:text-emerald-400">${item.correct}/${item.total} (${pct}%)</span>
+            </div>
+            <div class="w-full h-2 bg-slate-200 dark:bg-emeraldDeep rounded-full overflow-hidden">
+              <div class="h-full bg-emerald-500 rounded-full" style="width: ${pct}%"></div>
+            </div>
+          </div>
+        `;
+      });
+
+      // Render Cognitive Level Breakdown (L1 - L3)
+      const lvlList = document.getElementById("levelBreakdownList");
+      lvlList.innerHTML = "";
+      Object.values(levelStats).forEach(item => {
+        const pct = Math.round((item.correct / item.total) * 100);
+        lvlList.innerHTML += `
+          <div class="space-y-1">
+            <div class="flex justify-between text-xs font-semibold">
+              <span class="text-slate-700 dark:text-slate-200">${item.name}</span>
+              <span class="font-mono text-amber-600 dark:text-amber-400">${item.correct}/${item.total} (${pct}%)</span>
+            </div>
+            <div class="w-full h-2 bg-slate-200 dark:bg-emeraldDeep rounded-full overflow-hidden">
+              <div class="h-full bg-amber-400 rounded-full" style="width: ${pct}%"></div>
+            </div>
+          </div>
+        `;
+      });
+
+      const l1Pct = Math.round((levelStats.L1.correct / levelStats.L1.total) * 100);
+      const l3Pct = Math.round((levelStats.L3.correct / levelStats.L3.total) * 100);
+      document.getElementById("diagnosticAdviceBox").innerHTML =
+        l1Pct >= 70 && l3Pct < 60
+          ? "<strong>Rekomendasi Diagnosis:</strong> Capaian konsep dasar (L1) Anda sudah baik, namun perlu lebih banyak berlatih soal penalaran & pemecahan masalah berbasis teks/tabel (L3)."
+          : finalScore >= 80
+          ? "<strong>Rekomendasi Diagnosis:</strong> Penguasaan kompetensi pemahaman, analisis, penalaran, dan pemecahan masalah sangat memuaskan. Pertahankan prestasi ini!"
+          : "<strong>Rekomendasi Diagnosis:</strong> Perkuat pemahaman kosakata dan struktur teks dasar (L1 & L2) dengan membaca kembali pembahasan setiap butir soal di bawah ini.";
+
+      // Render Full Review & Pembahasan
+      const reviewContainer = document.getElementById("reviewQuestionsList");
+      reviewContainer.innerHTML = "";
+      const letters = ["A", "B", "C", "D"];
+
+      state.questions.forEach((q, idx) => {
+        const userAns = state.answers[q.id];
+        const isCorrect = userAns !== undefined && userAns === q.shuffledAns;
+        const userText = userAns !== undefined ? `${letters[userAns]}. ${q.shuffledOpts[userAns]}` : "Tidak dijawab";
+        const correctText = `${letters[q.shuffledAns]}. ${q.shuffledOpts[q.shuffledAns]}`;
+
+        reviewContainer.innerHTML += `
+          <div class="p-4 rounded-2xl border ${
+            isCorrect
+              ? "border-emerald-500/40 bg-emerald-500/5"
+              : "border-rose-500/40 bg-rose-500/5"
+          } space-y-2">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="text-xs font-mono font-bold px-2.5 py-1 rounded-lg ${
+                isCorrect ? "bg-emerald-500 text-white" : "bg-rose-500 text-white"
+              }">No. ${idx + 1} (Butir Asli #${q.id}) • ${isCorrect ? "BENAR" : "SALAH"}</span>
+              <span class="text-[11px] font-semibold text-slate-400">${q.comp} | ${q.level} | ${q.topic}</span>
+            </div>
+            <p class="text-sm font-bold text-slate-900 dark:text-white">${q.q.replace(/\n/g, "<br/>")}</p>
+            <div class="text-xs space-y-1 pt-1">
+              <p class="${isCorrect ? "text-emerald-600 dark:text-emerald-400" : "text-rose-600 dark:text-rose-400"} font-semibold">
+                Jawaban Anda: ${userText}
+              </p>
+              ${!isCorrect ? `<p class="text-emerald-600 dark:text-emerald-400 font-bold">Kunci Jawaban: ${correctText}</p>` : ""}
+              <p class="text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-emeraldDeep/80 p-2.5 rounded-xl mt-1.5">
+                <strong class="text-amber-600 dark:text-amber-400">Pembahasan:</strong> ${q.exp}
+              </p>
+            </div>
+          </div>
+        `;
+      });
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // =========================================================================
+    // 10. HIGH-RESOLUTION PNG CERTIFICATE DOWNLOADER (HTML5 CANVAS)
+    // =========================================================================
+    function downloadCertificatePNG() {
+      const canvas = document.getElementById("certExportCanvas");
+      const ctx = canvas.getContext("2d");
+      const W = canvas.width;
+      const H = canvas.height;
+
+      // Deep Emerald Futuristic Background
+      const bgGrad = ctx.createLinearGradient(0, 0, W, H);
+      bgGrad.addColorStop(0, "#04150F");
+      bgGrad.addColorStop(0.5, "#08241A");
+      bgGrad.addColorStop(1, "#04120D");
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, W, H);
+
+      // Gold Outer Frame & Emerald Inner Frame
+      ctx.strokeStyle = "#F59E0B";
+      ctx.lineWidth = 10;
+      ctx.strokeRect(36, 36, W - 72, H - 72);
+
+      ctx.strokeStyle = "#10B981";
+      ctx.lineWidth = 3;
+      ctx.strokeRect(56, 56, W - 112, H - 112);
+
+      // Corner Gold Accents
+      ctx.fillStyle = "#FBBF24";
+      ctx.fillRect(30, 30, 35, 35);
+      ctx.fillRect(W - 65, 30, 35, 35);
+      ctx.fillRect(30, H - 65, 35, 35);
+      ctx.fillRect(W - 65, H - 65, 35, 35);
+
+      // Header Serial & Phase
+      ctx.fillStyle = "#34D399";
+      ctx.font = "bold 20px monospace";
+      ctx.textAlign = "left";
+      ctx.fillText(`SERIAL: ${document.getElementById("certSerialId").textContent}`, 95, 110);
+      ctx.textAlign = "right";
+      ctx.fillText("FASE D • KELAS IX MTs/SMP", W - 95, 110);
+
+      // Certificate Main Title
+      ctx.textAlign = "center";
+      ctx.fillStyle = "#FBBF24";
+      ctx.font = "bold 56px Georgia, serif";
+      ctx.fillText("CERTIFICATE OF ACHIEVEMENT", W / 2, 210);
+
+      ctx.fillStyle = "#6EE7B7";
+      ctx.font = "bold 22px sans-serif";
+      ctx.fillText("SERTIFIKAT CAPAIAN KOMPETENSI ASESMEN MODEL TKA", W / 2, 255);
+
+      // Presented To
+      ctx.fillStyle = "#CBD5E1";
+      ctx.font = "22px sans-serif";
+      ctx.fillText("Diberikan dengan bangga kepada / Proudly presented to:", W / 2, 330);
+
+      // Student Name
+      ctx.fillStyle = "#FFFFFF";
+      ctx.font = "bold 54px Georgia, serif";
+      ctx.fillText(state.student.name.toUpperCase(), W / 2, 415);
+
+      // Gold Underline under Name
+      ctx.strokeStyle = "#F59E0B";
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(W / 2 - 360, 438);
+      ctx.lineTo(W / 2 + 360, 438);
+      ctx.stroke();
+
+      // Student Details
+      ctx.fillStyle = "#A7F3D0";
+      ctx.font = "bold 24px sans-serif";
+      ctx.fillText(
+        `Kelas: ${state.student.className}   |   No. Presensi: ${state.student.number}   |   Asal Madrasah: ${state.student.school}`,
+        W / 2,
+        490
+      );
+
+      // Description
+      ctx.fillStyle = "#E2E8F0";
+      ctx.font = "22px sans-serif";
+      ctx.fillText(
+        "Telah menyelesaikan Paket Latihan Asesmen Model TKA: Bahasa Inggris Kelas IX (Fase D)",
+        W / 2,
+        560
+      );
+
+      // Score Pill Box
+      const scoreVal = document.getElementById("certScoreValue").textContent;
+      const predVal = document.getElementById("certPredicate").textContent;
+
+      ctx.fillStyle = "#062C20";
+      ctx.strokeStyle = "#FBBF24";
+      ctx.lineWidth = 3;
+      ctx.fillRect(W / 2 - 260, 600, 520, 95);
+      ctx.strokeRect(W / 2 - 260, 600, 520, 95);
+
+      ctx.fillStyle = "#FBBF24";
+      ctx.font = "bold 36px monospace";
+      ctx.fillText(`SKOR: ${scoreVal}`, W / 2, 646);
+      ctx.fillStyle = "#34D399";
+      ctx.font = "bold 18px sans-serif";
+      ctx.fillText(`PREDIKAT: ${predVal}`, W / 2, 678);
+
+      // Footer Signatures
+      const dateText = document.getElementById("certDateText").textContent;
+      ctx.textAlign = "left";
+      ctx.fillStyle = "#94A3B8";
+      ctx.font = "19px sans-serif";
+      ctx.fillText("Tanggal Penerbitan / Issued Date:", 110, 790);
+      ctx.fillStyle = "#FFFFFF";
+      ctx.font = "bold 22px sans-serif";
+      ctx.fillText(dateText, 110, 825);
+      ctx.fillStyle = "#34D399";
+      ctx.font = "17px sans-serif";
+      ctx.fillText("Verified by TKA Enterprise Proctoring Engine", 110, 860);
+
+      ctx.textAlign = "right";
+      ctx.fillStyle = "#94A3B8";
+      ctx.font = "19px sans-serif";
+      ctx.fillText("Pengembang & Pembuat Aplikasi,", W - 110, 790);
+      ctx.fillStyle = "#FBBF24";
+      ctx.font = "italic bold 30px Georgia, serif";
+      ctx.fillText("Ahmad Budi Leksono", W - 110, 845);
+      ctx.fillStyle = "#FFFFFF";
+      ctx.font = "bold 22px sans-serif";
+      ctx.fillText("Ahmad Budi Leksono", W - 110, 882);
+
+      // Trigger Download
+      const link = document.createElement("a");
+      const safeName = state.student.name.replace(/[^a-zA-Z0-9]/g, "_");
+      link.download = `Sertifikat_TKA_${safeName}.png`;
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+      showToast("Sertifikat PNG berhasil diunduh!", "info");
+    }
+
+    // Initialize default language text on load
+    applyLanguage();
+  </script>
+</body>
+</html>
